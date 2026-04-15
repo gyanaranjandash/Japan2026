@@ -7,16 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink:#1a1a1a; --muted:#6b6b6b; --soft:#9b9b9b; --bg:#faf8f4; --card:#fff;
-  --border:#e8e4dd; --accent:#c0392b; --accent2:#2c6e8a; --accent3:#2d7a4f;
-  --warn:#b87333; --together:#2d7a4f; --solo:#2c6e8a; --weekend:#7b3fa0;
-  --puja:#8B4513; --food:#c0392b; --cook:#e67e22;
+:root{
+  --ink:#1a1a1a;--muted:#6b6b6b;--soft:#9b9b9b;--bg:#faf8f4;--card:#fff;
+  --border:#e8e4dd;--accent:#c0392b;--accent2:#2c6e8a;--accent3:#2d7a4f;
+  --warn:#b87333;--together:#2d7a4f;--solo:#2c6e8a;--weekend:#7b3fa0;
+  --puja:#8B4513;--cook:#e67e22;--jdm:#c0392b;--exp:#0d6e5e;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6}
 
-/* HEADER */
 .site-header{background:var(--ink);color:#fff;padding:3rem 2rem 2.5rem;text-align:center;position:relative;overflow:hidden}
 .site-header::before{content:'日本';position:absolute;font-family:'Playfair Display',serif;font-size:14rem;opacity:.04;top:-2rem;right:1rem;line-height:1;pointer-events:none}
 .site-header h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:600;letter-spacing:-.01em;margin-bottom:.4rem}
@@ -25,152 +24,151 @@ body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;font
 .header-meta span{font-size:.82rem;color:rgba(255,255,255,.5);font-family:'DM Mono',monospace}
 .header-meta strong{color:rgba(255,255,255,.9);font-weight:400}
 
-/* BUDGET SUMMARY */
-.budget-bar{background:#fff;border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;justify-content:center}
+.budget-bar{background:#fff;border-bottom:1px solid var(--border);padding:.8rem 2rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;justify-content:center}
 .budget-pill{display:flex;align-items:center;gap:.4rem;background:var(--bg);border:1px solid var(--border);border-radius:99px;padding:.3rem .8rem;font-size:.8rem}
 .budget-pill .label{color:var(--muted)}.budget-pill .val{font-family:'DM Mono',monospace;font-weight:500}
 .budget-pill.total{background:var(--ink);border-color:var(--ink)}.budget-pill.total .label,.budget-pill.total .val{color:#fff}
-.budget-note{width:100%;text-align:center;font-size:.75rem;color:var(--soft);margin-top:.3rem}
+.budget-pill.shop{background:#fff8f0;border-color:#f0d8b0}.budget-pill.shop .label{color:#7a4000}.budget-pill.shop .val{color:#b87333}
+.budget-note{width:100%;text-align:center;font-size:.73rem;color:var(--soft);margin-top:.2rem}
 
-/* CONTROLS */
-.controls{padding:1rem 2rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100}
-.controls-label{font-size:.78rem;color:var(--soft);text-transform:uppercase;letter-spacing:.08em;margin-right:.3rem}
-.filter-btn{font-family:'DM Sans',sans-serif;font-size:.8rem;padding:.3rem .9rem;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap}
+.lab-notice{background:#fff8e8;border-bottom:1px solid #f0d890;padding:.6rem 2rem;text-align:center;font-size:.8rem;color:#7a4800}
+.lab-notice strong{color:#5a3000}
+
+.controls{padding:.9rem 2rem;display:flex;gap:.4rem;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--border);background:#fff;position:sticky;top:0;z-index:100;box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.controls-label{font-size:.75rem;color:var(--soft);text-transform:uppercase;letter-spacing:.08em;margin-right:.3rem}
+.filter-btn{font-family:'DM Sans',sans-serif;font-size:.78rem;padding:.25rem .8rem;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap}
 .filter-btn:hover{border-color:var(--ink);color:var(--ink)}
 .filter-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
 .filter-btn.f-together.active{background:var(--together);border-color:var(--together)}
 .filter-btn.f-solo.active{background:var(--solo);border-color:var(--solo)}
 .filter-btn.f-weekend.active{background:var(--weekend);border-color:var(--weekend)}
-.filter-btn.f-auto.active{background:var(--warn);border-color:var(--warn)}
-.filter-btn.f-puja.active{background:var(--puja);border-color:var(--puja)}
+.filter-btn.f-jdm.active{background:var(--jdm);border-color:var(--jdm)}
+.filter-btn.f-experience.active{background:var(--exp);border-color:var(--exp)}
 .filter-btn.f-cook.active{background:var(--cook);border-color:var(--cook)}
+.filter-btn.f-blocked.active{background:#888;border-color:#888}
 
-/* MAIN */
-.main{max-width:1100px;margin:0 auto;padding:2rem 1rem}
+.main{max-width:1100px;margin:0 auto;padding:1.5rem 1rem}
 
-/* SECTION BREAK */
-.section-break{display:flex;align-items:center;gap:1rem;margin:2rem 0 1rem}
-.section-break .city-name{font-family:'Playfair Display',serif;font-size:1rem;color:var(--muted);white-space:nowrap}
+.section-break{display:flex;align-items:center;gap:1rem;margin:1.5rem 0 .8rem}
+.section-break .city-name{font-family:'Playfair Display',serif;font-size:.95rem;color:var(--muted);white-space:nowrap}
 .section-break .city-line{flex:1;height:1px;background:var(--border)}
-.section-break .city-dates{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--soft);white-space:nowrap}
+.section-break .city-dates{font-family:'DM Mono',monospace;font-size:.73rem;color:var(--soft);white-space:nowrap}
 
-/* DAY CARD */
-.day-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;overflow:hidden;transition:box-shadow .15s,border-color .15s}
-.day-card:hover{border-color:#ccc;box-shadow:0 2px 12px rgba(0,0,0,.05)}
-.day-header{display:grid;grid-template-columns:90px 1fr auto;align-items:stretch;cursor:pointer;user-select:none}
-.day-left{padding:1rem .8rem;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
-.day-num{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--soft);margin-bottom:2px}
-.day-date{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--ink);line-height:1.2}
-.day-weekday{font-size:.72rem;color:var(--muted);margin-top:2px}
-.day-mid{padding:.85rem 1rem;display:flex;flex-direction:column;justify-content:center;gap:.3rem}
-.day-title{font-size:.92rem;font-weight:500;color:var(--ink)}
-.day-sub{font-size:.78rem;color:var(--muted)}
+.day-card{background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:7px;overflow:hidden;transition:box-shadow .15s,border-color .15s}
+.day-card:hover{border-color:#ccc;box-shadow:0 2px 10px rgba(0,0,0,.05)}
+.day-card.blocked-day{opacity:.7;background:#fafafa}
+
+.day-header{display:grid;grid-template-columns:86px 1fr auto;align-items:stretch;cursor:pointer;user-select:none}
+.day-left{padding:.9rem .75rem;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.day-num{font-family:'DM Mono',monospace;font-size:.66rem;color:var(--soft);margin-bottom:2px}
+.day-date{font-family:'Playfair Display',serif;font-size:1rem;color:var(--ink);line-height:1.2}
+.day-weekday{font-size:.7rem;color:var(--muted);margin-top:2px}
+.day-mid{padding:.8rem 1rem;display:flex;flex-direction:column;justify-content:center;gap:.25rem}
+.day-title{font-size:.9rem;font-weight:500;color:var(--ink)}
+.day-sub{font-size:.76rem;color:var(--muted)}
 .day-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
-.tag{font-size:.68rem;padding:2px 8px;border-radius:99px;font-weight:500;letter-spacing:.02em}
+.tag{font-size:.66rem;padding:2px 7px;border-radius:99px;font-weight:500}
 .tag-together{background:#e8f4ed;color:#1e5c35;border:1px solid #c5e3cf}
 .tag-solo{background:#e8f2f7;color:#1a4f6e;border:1px solid #bcd8e8}
 .tag-weekend{background:#f0eaf7;color:#5a2a7a;border:1px solid #d8c5ee}
-.tag-auto{background:#fdf3e7;color:#7a4b10;border:1px solid #f0d0a0}
-.tag-food{background:#faeaea;color:#7a1a1a;border:1px solid #eebbbb}
+.tag-jdm{background:#faeaea;color:#7a1a1a;border:1px solid #f0b8b8}
+.tag-experience{background:#e0f5f0;color:#0a5040;border:1px solid #90d8c8}
 .tag-puja{background:#fff0e8;color:#6b2800;border:1px solid #f0c8a0}
 .tag-cook{background:#fff5e0;color:#7a4000;border:1px solid #f0d890}
 .tag-transit{background:#f0ece8;color:#5a4a3a;border:1px solid #ddd8d0}
-.tag-market{background:#fff5e8;color:#7a4a10;border:1px solid #f0d8b0}
-.tag-watch{background:#f5f0ff;color:#4a2a7a;border:1px solid #d8c8f0}
 .tag-fuji{background:#e8f4ff;color:#1a3a6e;border:1px solid #b8d4f0}
-.day-right{padding:.85rem .8rem;display:flex;align-items:center;gap:6px;border-left:1px solid var(--border);flex-shrink:0}
-.budget-badge{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--muted);white-space:nowrap;text-align:right}
-.budget-badge .yen{display:block;font-size:.85rem;color:var(--ink);font-weight:500}
-.chevron{color:var(--soft);font-size:.9rem;transition:transform .2s;flex-shrink:0}
+.tag-shinkansen{background:#fff0f8;color:#6a1040;border:1px solid #f0b8d8}
+.tag-blocked{background:#f0ece8;color:#888;border:1px solid #ddd}
+.tag-market{background:#fff5e8;color:#7a4a10;border:1px solid #f0d8b0}
+.tag-onsen{background:#fff0f5;color:#7a0030;border:1px solid #f0b8c8}
+.tag-kaiseki{background:#f8f0e8;color:#5a3000;border:1px solid #e0c8a0}
+
+.day-right{padding:.8rem .75rem;display:flex;align-items:center;gap:5px;border-left:1px solid var(--border);flex-shrink:0}
+.budget-badge{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--muted);white-space:nowrap;text-align:right}
+.budget-badge .yen{display:block;font-size:.82rem;color:var(--ink);font-weight:500}
+.chevron{color:var(--soft);font-size:.85rem;transition:transform .2s;flex-shrink:0}
 .day-card.open .chevron{transform:rotate(180deg)}
 
-/* DETAIL */
 .day-detail{display:none;border-top:1px solid var(--border)}
 .day-card.open .day-detail{display:block}
-.detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid var(--border)}
-.detail-col{padding:1rem 1.2rem;border-right:1px solid var(--border)}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr 1fr;border-bottom:1px solid var(--border)}
+.detail-col{padding:.9rem 1.1rem;border-right:1px solid var(--border)}
 .detail-col:last-child{border-right:none}
-.detail-col-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);font-weight:500;margin-bottom:.6rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
-.time-block{margin-bottom:.8rem}
-.time-label{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--soft);margin-bottom:3px}
-.time-items{list-style:none}
-.time-items li{font-size:.82rem;color:var(--ink);padding:1px 0 1px 12px;position:relative;line-height:1.5}
-.time-items li::before{content:'–';position:absolute;left:0;color:var(--soft)}
-.time-items li.cook-marker{background:#fff8e8;border-radius:4px;margin:2px 0;padding:2px 6px 2px 18px}
-.time-items li.cook-marker::before{content:'🍳';background:none;left:2px}
-.food-item{margin-bottom:.7rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
-.food-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-.food-name{font-size:.84rem;font-weight:500;color:var(--ink)}
-.food-where{font-size:.76rem;color:var(--muted)}
-.food-note{font-size:.74rem;color:var(--soft);font-style:italic;margin-top:1px}
-.food-cost{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent3)}
-.ticket-item{margin-bottom:.7rem;padding-bottom:.7rem;border-bottom:1px solid var(--border)}
-.ticket-item:last-child{border-bottom:none;margin-bottom:0}
-.ticket-name{font-size:.82rem;font-weight:500;color:var(--ink)}
-.ticket-price{font-family:'DM Mono',monospace;font-size:.8rem;color:var(--accent2);font-weight:500}
-.ticket-how{font-size:.72rem;color:var(--accent3);margin-top:1px}
-.ticket-note{font-size:.72rem;color:var(--soft)}
-.budget-row{display:flex;justify-content:space-between;font-size:.8rem;padding:2px 0}
-.budget-row .cat{color:var(--muted)}.budget-row .amt{font-family:'DM Mono',monospace;color:var(--ink)}
-.budget-total{display:flex;justify-content:space-between;font-size:.85rem;font-weight:500;padding-top:6px;margin-top:4px;border-top:1px solid var(--border)}
-.budget-total .amt{font-family:'DM Mono',monospace;color:var(--accent)}
-.shopping-row{display:flex;justify-content:space-between;font-size:.8rem;padding:2px 0;background:#fff8f0;border-radius:3px;padding:3px 5px;margin:2px 0}
-.shopping-row .cat{color:var(--warn)}.shopping-row .amt{font-family:'DM Mono',monospace;color:var(--warn);font-weight:500}
-.day-note{padding:.8rem 1.2rem;background:#fffdf8;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted);line-height:1.6;border-left:3px solid var(--warn)}
-.puja-box{padding:.8rem 1.2rem;background:#fff8f0;border-top:1px solid var(--border);font-size:.78rem;color:#6b2800;line-height:1.6;border-left:3px solid var(--puja)}
+.col-title{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--soft);font-weight:500;margin-bottom:.5rem;padding-bottom:.35rem;border-bottom:1px solid var(--border)}
 
-/* LEGEND */
-.legend{display:flex;flex-wrap:wrap;gap:10px;padding:1rem 2rem;background:#fff;border-bottom:1px solid var(--border);justify-content:center}
-.legend-item{display:flex;align-items:center;gap:5px;font-size:.75rem;color:var(--muted)}
+.time-block{margin-bottom:.7rem}
+.time-label{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--soft);margin-bottom:2px}
+.time-items{list-style:none}
+.time-items li{font-size:.8rem;color:var(--ink);padding:1px 0 1px 11px;position:relative;line-height:1.5}
+.time-items li::before{content:'–';position:absolute;left:0;color:var(--soft)}
+.time-items li.cook-li{background:#fffbf0;border-radius:3px;padding-left:16px;margin:1px 0}
+.time-items li.cook-li::before{content:'🍳';left:1px;background:none}
+.time-items li.highlight-li{color:var(--exp);font-weight:500}
+.time-items li.highlight-li::before{color:var(--exp)}
+.time-items li.jdm-li{color:#8B0000;font-weight:500}
+
+.food-item,.ticket-item{margin-bottom:.65rem;padding-bottom:.65rem;border-bottom:1px solid var(--border)}
+.food-item:last-child,.ticket-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.item-name{font-size:.81rem;font-weight:500;color:var(--ink)}
+.item-sub{font-size:.74rem;color:var(--muted)}
+.item-note{font-size:.72rem;color:var(--soft);font-style:italic;margin-top:1px}
+.item-cost,.ticket-price{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--accent3)}
+.ticket-price{color:var(--accent2);font-weight:500}
+.ticket-how{font-size:.7rem;color:var(--exp);margin-top:1px}
+
+.budget-row{display:flex;justify-content:space-between;font-size:.78rem;padding:2px 0}
+.budget-row .cat{color:var(--muted)}.budget-row .amt{font-family:'DM Mono',monospace}
+.shop-row{display:flex;justify-content:space-between;font-size:.78rem;padding:3px 5px;background:#fff8f0;border-radius:3px;margin:2px 0}
+.shop-row .cat{color:var(--warn)}.shop-row .amt{font-family:'DM Mono',monospace;color:var(--warn)}
+.budget-total{display:flex;justify-content:space-between;font-size:.83rem;font-weight:500;padding-top:5px;margin-top:4px;border-top:1px solid var(--border)}
+.budget-total .amt{font-family:'DM Mono',monospace;color:var(--accent)}
+
+.day-note{padding:.75rem 1.1rem;background:#fffdf8;border-top:1px solid var(--border);font-size:.77rem;color:var(--muted);line-height:1.6;border-left:3px solid var(--warn)}
+.puja-box{padding:.75rem 1.1rem;background:#fff8f0;border-top:1px solid var(--border);font-size:.77rem;color:#6b2800;line-height:1.6;border-left:3px solid var(--puja)}
+.exp-box{padding:.75rem 1.1rem;background:#e8f8f4;border-top:1px solid var(--border);font-size:.77rem;color:#0a4030;line-height:1.6;border-left:3px solid var(--exp)}
+.jdm-box{padding:.75rem 1.1rem;background:#fff0f0;border-top:1px solid var(--border);font-size:.77rem;color:#6b0000;line-height:1.6;border-left:3px solid var(--jdm)}
+
+.legend{display:flex;flex-wrap:wrap;gap:8px;padding:.8rem 2rem;background:#fff;border-bottom:1px solid var(--border);justify-content:center}
+.legend-item{display:flex;align-items:center;gap:5px;font-size:.73rem;color:var(--muted)}
 .legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 
-/* FOOD SECTION */
-.food-section,.watch-section,.essentials-section{margin-top:3rem}
-.food-section h2,.watch-section h2,.essentials-section h2{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.3rem}
-.section-subtitle{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem}
-.food-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.food-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.food-card-header{padding:.9rem 1rem .5rem;border-bottom:1px solid var(--border)}
-.food-card.covered .food-card-header{border-left:3px solid var(--accent3)}
-.food-card.missing .food-card-header{border-left:3px solid var(--soft)}
-.food-card-name{font-weight:500;font-size:.92rem;color:var(--ink)}
-.food-card-type{font-size:.72rem;color:var(--muted);margin-top:2px}
-.food-card-body{padding:.7rem 1rem .9rem}
-.food-card-desc{font-size:.8rem;color:var(--ink);line-height:1.55;margin-bottom:.6rem}
-.food-card-meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
-.food-card-cost{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--accent3)}
-.food-card-status{font-size:.7rem;padding:2px 8px;border-radius:99px}
-.status-covered{background:#e8f4ed;color:#1e5c35;border:1px solid #c5e3cf}
-.status-missing{background:#f0ece8;color:#5a4a3a;border:1px solid #ddd8d0}
+/* GUIDE SECTIONS */
+.guide-section{margin-top:2.5rem}
+.guide-section h2{font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:.25rem}
+.section-subtitle{font-size:.83rem;color:var(--muted);margin-bottom:1.2rem}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:10px}
+.guide-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.guide-card-header{padding:.8rem .95rem .45rem;border-bottom:1px solid var(--border)}
+.guide-card-name{font-weight:500;font-size:.9rem}
+.guide-card-type{font-size:.7rem;color:var(--muted);margin-top:2px}
+.guide-card-body{padding:.65rem .95rem .85rem}
+.guide-card-desc{font-size:.79rem;line-height:1.55;margin-bottom:.55rem;color:var(--ink)}
+.guide-card-meta{display:flex;justify-content:space-between;align-items:center;gap:4px;flex-wrap:wrap}
+.guide-card-cost{font-family:'DM Mono',monospace;font-size:.76rem;color:var(--accent3)}
+.guide-card-status{font-size:.68rem;padding:2px 7px;border-radius:99px}
+.status-in{background:#e8f4ed;color:#1e5c35;border:1px solid #c5e3cf}
+.status-try{background:#f0ece8;color:#5a4a3a;border:1px solid #ddd}
+.guide-card-where{font-size:.7rem;color:var(--soft);margin-top:3px}
 
-/* WATCH SECTION */
-.watch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
-.watch-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:1rem}
-.watch-card-name{font-weight:500;font-size:.9rem;margin-bottom:4px}
-.watch-card-city{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);margin-bottom:6px}
-.watch-card-desc{font-size:.79rem;color:var(--muted);line-height:1.55;margin-bottom:8px}
-.watch-card-tip{font-size:.74rem;color:var(--accent2);background:#e8f2f7;border-radius:6px;padding:5px 8px}
-.watch-card-budget{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--warn);margin-top:6px}
+.tip-box{font-size:.73rem;color:var(--accent2);background:#e8f2f7;border-radius:5px;padding:5px 7px;margin-top:6px}
+.budget-note-sm{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--warn);margin-top:5px}
 
-/* ESSENTIALS */
-.essentials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.ess-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
 .ess-card{background:#fff;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.ess-card-header{padding:.8rem 1rem;background:var(--bg);border-bottom:1px solid var(--border);font-weight:500;font-size:.88rem;display:flex;align-items:center;gap:.5rem}
-.ess-icon{font-size:1rem}
-.ess-card-body{padding:.7rem 1rem .9rem}
-.ess-item{font-size:.8rem;color:var(--ink);padding:3px 0 3px 12px;position:relative;line-height:1.5;border-bottom:1px solid var(--border)}
+.ess-header{padding:.75rem .95rem;background:var(--bg);border-bottom:1px solid var(--border);font-weight:500;font-size:.86rem;display:flex;align-items:center;gap:.5rem}
+.ess-body{padding:.65rem .95rem .85rem}
+.ess-item{font-size:.79rem;padding:3px 0 3px 12px;position:relative;line-height:1.5;border-bottom:1px solid var(--border)}
 .ess-item:last-child{border-bottom:none}
-.ess-item::before{content:'→';position:absolute;left:0;color:var(--soft);font-size:.7rem}
-.ess-item .note{font-size:.72rem;color:var(--soft);display:block;font-style:italic}
+.ess-item::before{content:'→';position:absolute;left:0;color:var(--soft);font-size:.68rem}
+.ess-note{font-size:.7rem;color:var(--soft);display:block;font-style:italic}
 
-/* FOOTER */
-footer{margin-top:4rem;padding:2rem;text-align:center;font-size:.78rem;color:var(--soft);border-top:1px solid var(--border)}
+footer{margin-top:3.5rem;padding:1.5rem 2rem;text-align:center;font-size:.77rem;color:var(--soft);border-top:1px solid var(--border)}
 
 @media(max-width:700px){
   .detail-grid{grid-template-columns:1fr}
   .detail-col{border-right:none;border-bottom:1px solid var(--border)}
   .detail-col:last-child{border-bottom:none}
-  .day-header{grid-template-columns:80px 1fr auto}
+  .day-header{grid-template-columns:78px 1fr auto}
   .site-header h1{font-size:1.8rem}
 }
 </style>
@@ -179,525 +177,518 @@ footer{margin-top:4rem;padding:2rem;text-align:center;font-size:.78rem;color:var
 
 <header class="site-header">
   <h1>Japan 2026</h1>
-  <div class="sub">Gyana &amp; Bandita · 18 Days · Nagoya Base</div>
+  <div class="sub">Gyana &amp; Bandita · 18 Days · Nagoya University · NIBB</div>
   <div class="header-meta">
-    <span><strong>Arrival</strong> 15 May, 12:30 hrs · Chubu Centrair Airport</span>
-    <span><strong>Departure</strong> 1 Jun, 09:15 hrs · Chubu Centrair Airport</span>
-    <span style="display:inline-block; max-width:100%; word-break:break-word;">
-  <strong>Base</strong> NIBB / Mishima Lodge, Nagoya University
-</span>
+    <span><strong>Arrival</strong> 15 May, 12:30 · Chubu Centrair</span>
+    <span><strong>Departure</strong> 1 Jun, 09:15 · Chubu Centrair</span>
+    <span><strong>Bandita's lab</strong> Mon–Fri 10:00–19:30 · NIBB, Nagoya University</span>
   </div>
 </header>
 
+<div class="lab-notice">
+  <strong>Lab schedule:</strong> Bandita is at NIBB 10:00–19:30 on weekdays. Mornings until 09:45 and evenings from ~20:00 are together time on weekdays. &nbsp;|&nbsp; <strong>22 May (Thu):</strong> Full university event — completely free day together. &nbsp;|&nbsp; Weekends fully free.
+</div>
+
 <div class="budget-bar">
-  <div class="budget-pill"><span class="label">Transport</span><span class="val">¥60,000–75,000</span></div>
-  <div class="budget-pill"><span class="label">Food (18 days)</span><span class="val">¥45,000–55,000</span></div>
-  <div class="budget-pill"><span class="label">Activities &amp; Tickets</span><span class="val">¥22,000–30,000</span></div>
-  <div class="budget-pill" style="background:#fff8f0;border-color:#f0d8b0"><span class="label" style="color:#7a4000">Shopping (₹1,25,000)</span><span class="val" style="color:#b87333">≈ ¥2,11,000</span></div>
-  <div class="budget-pill total"><span class="label">Grand total (excl. stay)</span><span class="val">¥3,38,000–3,71,000</span></div>
-  <div class="budget-note">Shopping budget: ₹1,00,000 base + ₹25,000 extended = ₹1,25,000 ≈ ¥2,11,250 at ₹1 = ¥1.69 · All other amounts in JPY</div>
+  <div class="budget-pill"><span class="label">Transport</span><span class="val">¥65,000–80,000</span></div>
+  <div class="budget-pill"><span class="label">Food &amp; dining</span><span class="val">¥50,000–65,000</span></div>
+  <div class="budget-pill"><span class="label">Activities &amp; tickets</span><span class="val">¥20,000–28,000</span></div>
+  <div class="budget-pill shop"><span class="label">Shopping (₹1,25,000)</span><span class="val">≈ ¥2,11,000</span></div>
+  <div class="budget-pill total"><span class="label">Grand total (excl. stay)</span><span class="val">¥3,46,000–3,84,000</span></div>
+  <div class="budget-note">₹1,25,000 shopping budget at ₹1 = ¥1.69 · Onsen + Kaiseki ≈ ¥25,000–35,000 (from food/activities budget)</div>
 </div>
 
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:#2d7a4f"></div> Together</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#2c6e8a"></div> Solo</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#7b3fa0"></div> Weekend trip</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#b87333"></div> Auto museum</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#8B4513"></div> Sabitri Brata puja</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#e67e22"></div> Cook at home</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#c0392b"></div> Food focus</div>
-  <div class="legend-item"><div class="legend-dot" style="background:#1a3a6e"></div> Mt. Fuji</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2d7a4f"></div>Together</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#2c6e8a"></div>Solo (she's at lab)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#7b3fa0"></div>Weekend trip</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#c0392b"></div>JDM / Auto hidden gem</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#0d6e5e"></div>Japan experience</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#8B4513"></div>Sabitri Brata puja</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#e67e22"></div>Cook at home</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#888"></div>Blocked / Free day</div>
 </div>
 
 <div class="controls">
   <span class="controls-label">Filter</span>
   <button class="filter-btn active" onclick="filterDays('all',this)">All 18 days</button>
   <button class="filter-btn f-together" onclick="filterDays('together',this)">Together</button>
-  <button class="filter-btn f-solo" onclick="filterDays('solo',this)">Solo</button>
-  <button class="filter-btn f-weekend" onclick="filterDays('weekend',this)">Weekend trips</button>
-  <button class="filter-btn f-auto" onclick="filterDays('auto',this)">Auto museums</button>
-  <button class="filter-btn f-puja" onclick="filterDays('puja',this)">Sabitri Brata</button>
+  <button class="filter-btn f-solo" onclick="filterDays('solo',this)">Solo (lab days)</button>
+  <button class="filter-btn f-weekend" onclick="filterDays('weekend',this)">Weekends</button>
+  <button class="filter-btn f-jdm" onclick="filterDays('jdm',this)">JDM spots</button>
+  <button class="filter-btn f-experience" onclick="filterDays('experience',this)">Japan experiences</button>
   <button class="filter-btn f-cook" onclick="filterDays('cook',this)">Cook at home</button>
+  <button class="filter-btn f-blocked" onclick="filterDays('blocked',this)">Blocked days</button>
 </div>
 
 <div class="main" id="days-root"></div>
 
-<div class="main food-section">
+<div class="main guide-section">
   <h2>Food Guide — Nagoya Meshi &amp; Beyond</h2>
-  <div class="section-subtitle">What you're eating on this trip (green) vs what you should try if you get the chance (grey) · ¥500–¥1,800 per dish</div>
-  <div class="food-grid" id="food-grid"></div>
+  <div class="section-subtitle">Covered in itinerary (green) · Worth trying if chance (grey) · All ¥500–¥1,800 per dish</div>
+  <div class="card-grid" id="food-grid"></div>
 </div>
 
-<div class="main watch-section">
+<div class="main guide-section">
   <h2>Watch Hunter's Guide</h2>
-  <div class="section-subtitle">Budget: ¥50,000–80,000 allocated from shopping fund · Used Seiko, Grand Seiko, Citizen, vintage Swiss</div>
-  <div class="watch-grid" id="watch-grid"></div>
+  <div class="section-subtitle">Budget ¥50,000–80,000 from shopping fund · Best Nagoya + Tokyo spots</div>
+  <div class="card-grid" id="watch-grid"></div>
 </div>
 
-<div class="main essentials-section">
+<div class="main guide-section">
   <h2>Trip Essentials</h2>
-  <div class="section-subtitle">Apps, daily backpack checklist, money tips, and general Japan advice — not day-wise</div>
-  <div class="essentials-grid" id="essentials-grid"></div>
+  <div class="section-subtitle">Apps, daily carry, money, transport — not day-wise</div>
+  <div class="ess-grid" id="essentials-grid"></div>
 </div>
 
 <footer>
-  Built for Gyana &amp; Bandita · Japan May–June 2026 · ₹1 ≈ ¥1.69 (Mar 2026 rate) · ¥1 ≈ ₹0.59<br>
-  Sabitri Brata: 16 May 2026 (Jyestha Amavasya) · Osu Antique Market: 18th &amp; 28th every month
+  Gyana &amp; Bandita · Japan May–June 2026 · ₹1 ≈ ¥1.69 (Mar 2026) · ¥1 ≈ ₹0.59<br>
+  Sabitri Brata: 16 May 2026 · Osu Antique Market: 18th &amp; 28th every month · Liberty Walk HQ: Wed–Sun 10:00–19:00 · Super Autobacs Nagoya Bay: daily 10:00–19:30
 </footer>
 
 <script>
-// ═══════ EXCHANGE RATE ═══════
-const INR_JPY = 1.69; // ₹1 = ¥1.69
-const SHOP_TOTAL_YEN = Math.round(125000 * INR_JPY); // ¥211,250
-
-// ═══════ DAYS DATA ═══════
 const days = [
-  // ── TRANSIT ──
+  // ── DAY 0: TRANSIT ──
   { n:'Day 0', date:'14 May', wd:'Thursday', color:'#888', types:['transit'],
     title:'Departure — New Delhi', sub:'Overnight flight to Nagoya',
-    yen:'¥0', yenRaw:0,
-    schedule:[
-      {t:'Evening', items:['Departure from Indira Gandhi International Airport, New Delhi','Overnight flight to Nagoya via connecting hub']},
-    ],
+    yen:'¥0',
+    schedule:[{t:'Evening',items:['Departure from IGI Airport, New Delhi','Overnight flight to Nagoya']}],
     food:[{name:'Airport meal',where:'IGI Terminal 3',note:'Last Indian food for 18 days — eat well!',cost:'₹400–600'}],
-    tickets:[{name:'Airfare',price:'Pre-paid',how:'—',note:'Check-in at least 3 hrs before'}],
-    budget:[{cat:'Airfare',amt:'Pre-paid'},{cat:'Airport food',amt:'₹400–600'}],
+    tickets:[{name:'Airfare',price:'Pre-paid',how:'—',note:'Check-in 3 hrs before international flight'}],
+    budget:[{cat:'Airport food',amt:'₹400–600'}],
     shopping:[],
-    note:'Pack your Suica card if you have one from a previous Japan trip. Charge all devices. Download Google Maps offline for Nagoya. Print your NIBB / Mishima Lodge address in Japanese to show at immigration.'
+    note:'Download Google Maps offline for Nagoya, Kyoto, Takayama, Tokyo before you fly. Carry ¥30,000 in cash from India — you cannot rely on cards at antique markets and stalls.'
   },
 
   // ── DAY 1: ARRIVAL ──
-  { n:'Day 1', date:'15 May', wd:'Friday', color:'#2c6e8a', types:['together','food','cook'],
-    title:'Arrival — Nagoya', sub:'Settle in · Evening with Bandita',
-    yen:'~¥4,000', yenRaw:4000,
+  { n:'Day 1', date:'15 May', wd:'Friday', color:'#2d7a4f', types:['together','cook'],
+    title:'Arrival — Slow evening with Bandita', sub:'No plans. Just arrive, settle, be with her.',
+    yen:'~¥3,500',
     schedule:[
-      {t:'12:30–14:30', items:['Land at Chubu Centrair Airport','Clear immigration, collect baggage','μ-SKY Meitetsu Limited Express → Nagoya Stn (28 min, ¥870)','Buy Suica card at Centrair if you don\'t have one (¥500 deposit + load ¥3,000–5,000)']},
-      {t:'14:30–17:30', items:['Check in at Mishima Lodge / NIBB campus','Walk Nagoya University campus — large, beautiful, peaceful','Explore Chikusa / Imaike neighbourhood around campus','Buy groceries at nearby supermarket (LIFE or Aeon) for tomorrow\'s Sabitri Brata puja needs']},
-      {t:'17:30–19:00', items:['Cook simple dal-rice or khichdi at lodge for Bandita — she fasts tomorrow','🍳 Cooking time (~1.5 hrs): prep tomorrow\'s puja meal in advance','Keep it light — she will break her fast at sunset tomorrow',], cook:true},
-      {t:'19:00–21:00', items:['Early quiet evening — she explains her lab work, you listen','Walk campus in the dark — NIBB building, Mishima shrine nearby','Early sleep for jet lag']}
+      {t:'12:30–14:30',items:['Land at Chubu Centrair Airport (12:30)','Immigration, baggage, buy Suica IC card at Centrair (¥500 deposit + load ¥5,000)','μ-SKY Meitetsu Limited Express → Nagoya Stn (28 min, ¥870)']},
+      {t:'14:30–17:00',items:['Check in at Mishima Lodge, NIBB campus','Walk the campus together — she shows you her lab building','Explore the neighbourhood around Nagoya University (Chikusa/Imaike area)','Buy groceries for tomorrow\'s Sabitri Brata puja (9 fruits, flowers, rice, dal)']},
+      {t:'17:00–22:00',items:['🍳 Cook together (1.5 hrs) — simple dal-rice, she may want to help','Just talk. She has been alone here for 6 weeks — be present.','Walk the campus in the evening, find a bench, watch the night'],cook:true}
     ],
-    food:[{name:'Convenience store dinner (tonight)',where:'FamilyMart or 7-Eleven near campus',note:'Onigiri, yakitori, chawanmushi, green tea. Outstanding quality.',cost:'¥500–800 each'},{name:'Cook for Bandita',where:'Mishima Lodge kitchen',note:'Simple Indian comfort meal — she will appreciate it enormously after weeks of Japanese food',cost:'¥500–800 (groceries)'}],
-    tickets:[{name:'μ-SKY to Nagoya Stn',price:'¥870',how:'IC card or cash at machine',note:'Fastest airport link, 28 min'}],
-    budget:[{cat:'μ-SKY train',amt:'¥870'},{cat:'Groceries (puja + cooking)',amt:'¥1,500–2,000'},{cat:'Conbini dinner',amt:'¥1,200–1,600'}],
+    food:[{name:'Convenience store dinner option',where:'7-Eleven or FamilyMart near campus',note:'Japanese conbini is genuinely excellent — onigiri, yakitori, karaage. If too tired to cook.',cost:'¥500–800 each'}],
+    tickets:[{name:'μ-SKY Centrair→Nagoya',price:'¥870',how:'IC card or cash at Centrair Meitetsu gate',note:'28 min fastest option'}],
+    budget:[{cat:'μ-SKY train',amt:'¥870'},{cat:'Groceries (puja + dinner)',amt:'¥2,000–2,500'}],
     shopping:[],
-    note:'Buy puja items at the supermarket today: fruits (9 types if possible), flowers, rice, dal. Japan has mangoes, bananas, grapes easily. Jackfruit and palm are harder — substitute with what\'s available.'
+    note:'No sightseeing today. You have 18 days — there is no rush. She has been away from you since April. The most important thing you can do on Day 1 is simply be present, cook something warm for her, and let her feel you are here.'
   },
 
   // ── DAY 2: SABITRI BRATA ──
-  { n:'Day 2', date:'16 May', wd:'Saturday', color:'#8B4513', types:['together','puja','food','cook','fuji'],
-    title:'Sabitri Brata + Mt. Fuji Day Trip', sub:'Sacred morning puja · Afternoon Fuji · Together',
-    yen:'~¥10,000', yenRaw:10000,
+  { n:'Day 2', date:'16 May', wd:'Saturday', color:'#8B4513', types:['together','puja','cook'],
+    title:'Sabitri Brata — Sacred puja day', sub:'Stay home / nearby · No big travel today',
+    yen:'~¥3,000',
     schedule:[
-      {t:'05:30–06:30', items:['Bandita wakes early, takes purifying bath, wears new saree or clothes','She applies sindoor, wears bangles — help her lay out the puja items you bought','Find a banyan tree on Nagoya University campus (there are large trees near the main gate area) OR perform the puja at the lodge with a banyan leaf in her hair as substitute']},
-      {t:'06:30–09:30', items:['PUJA TIME — 3 hours of sacred time together','Offer 9 types of fruits and flowers to Goddess Savitri','Read / listen to Sabitri Brata Katha together (download audio or text in advance)','Bandita fasts from sunrise — she will not eat until sunset','You sit beside her, be present — this is the whole point of you being in Japan on this date']},
-      {t:'09:30–10:00', items:['She rests / has some alone time — you prepare food for her post-fast meal in the evening','🍳 Cook puja prasad / evening break-fast meal (1.5 hrs): khichdi, pakhala, or dal-rice',], cook:true},
-      {t:'11:00–19:00', items:['TOGETHER: Mt. Fuji day trip — Bandita can join even while fasting (sightseeing, not eating)','Highway bus from Nagoya Sakura-dori → Kawaguchiko (~3 hrs, ¥3,500 one-way)','Arrive Kawaguchiko ~14:00','Chureito Pagoda — 398 steps up, the iconic Fuji + pagoda viewpoint','Kawaguchiko lakeside walk — Mt. Fuji reflection in the lake','Mt. Fuji Panoramic Ropeway if clear (¥1,200 return)','Return bus departs Kawaguchiko ~17:30 → Nagoya ~20:30']},
-      {t:'20:30–21:30', items:['Back in Nagoya — Bandita breaks her fast at sunset / dusk (around 18:30–19:00 Japan time)','She eats the prasad / meal you cooked in the morning','This is the most important moment of the day — be present, serve her the meal']}
+      {t:'05:00–06:00',items:['Bandita wakes early for purifying bath, wears new saree/clothes','She applies sindoor and bangles — you help lay out puja items purchased yesterday']},
+      {t:'06:00–09:30',items:['3 HOURS OF PUJA TOGETHER','Find a banyan tree on Nagoya University campus (large trees near main gate area)','Offer 9 types of fruits and flowers to Goddess Savitri','Listen to Sabitri Brata Katha together — download audio/text in advance (Odia)','She fasts from sunrise to sunset — you sit with her throughout','This is why you are in Japan on 16 May. Be fully present here.'],highlight:true},
+      {t:'09:30–11:00',items:['🍳 Cook puja prasad for her evening fast-break (1.5 hrs)','Simple khichdi or dal-rice, cut fruits, the prasad she will eat at sunset','This is your most important cooking session of the whole trip'],cook:true},
+      {t:'11:00–16:00',items:['Explore Nagoya University campus and Chikusa ward together','She can sightsee — she is fasting but can walk, sit, enjoy views','Walk to Higashiyama Skytower viewpoint nearby (¥0, 20 min walk)','Nittaiji Temple lane — quiet, local, no crowds']},
+      {t:'18:30–19:30',items:['Bandita breaks her fast at sunset (~18:30 Japan time)','She eats the prasad you cooked in the morning','You serve her — this is the moment the whole day builds toward']}
     ],
-    food:[{name:'Puja prasad (you cook)',where:'Mishima Lodge',note:'Simple rice, dal, seasonal fruits. She breaks her fast with this after sunset. Prepare in the morning before Fuji trip.',cost:'¥500 (groceries)'},{name:'Your lunch at Fuji',where:'Lake Kawaguchiko cafes',note:'She fasts — you eat. Kawaguchiko has good soba and udon by the lake. Respect her fast.',cost:'¥1,000–1,200'},{name:'Post-fast meal together',where:'Near campus / lodge',note:'Light traditional foods to break a fast — fruits, rice, plain dal. No heavy spices.',cost:'Covered in morning cook'}],
-    tickets:[{name:'Highway bus Nagoya→Kawaguchiko',price:'¥3,500 one-way',how:'Book at Willer Express (willerexpress.com) or Meitetsu Bus. Book 1–2 weeks in advance.',note:'Sakura-dori bus terminal, Nagoya'},{name:'Return bus Kawaguchiko→Nagoya',price:'¥3,500',how:'Same booking — book round trip together',note:'~3 hr journey, very scenic'},{name:'Chureito Pagoda',price:'Free',how:'Walk from Fujiyoshida-Higashikita Stn or taxi from Kawaguchiko',note:'398 steps but absolutely worth it'},{name:'Fuji Panoramic Ropeway',price:'¥1,200 return',how:'Buy on site, no booking needed',note:'Open 09:00–17:20. Skip if cloudy.'}],
-    budget:[{cat:'Bus return (each)',amt:'¥7,000'},{cat:'Fuji activities',amt:'¥1,200'},{cat:'Food (your lunch)',amt:'¥1,200'},{cat:'Puja groceries (prev day)',amt:'¥1,000'}],
+    food:[{name:'Puja prasad (you cook)',where:'Mishima Lodge kitchen',note:'Simple rice, dal, fruits. She breaks her fast with this. Prepare before 11am.',cost:'¥500 groceries'},{name:'Komeda Coffee nearby',where:'Walk from campus',note:'You can have morning set coffee while she rests during puja. Don\'t eat in front of her.',cost:'¥600–800'}],
+    tickets:[{name:'Everything on campus',price:'Free',how:'Walk',note:'Deliberately staying close to home today'}],
+    budget:[{cat:'Groceries + prasad',amt:'¥1,500'},{cat:'Coffee / light food (you)',amt:'¥800–1,000'}],
     shopping:[],
-    pujaNote:'Sabitri Brata 2026 falls on 16 May (Jyestha Amavasya — confirmed). This is a fasting day for Bandita from sunrise to sunset. She worships Goddess Savitri, prays for your long life, and listens to the Sabitri Brata Katha. The banyan tree puja is traditional — find one on campus (Nagoya Univ has many large trees). If no banyan, place a banyan leaf in her hair as the tradition allows. Your presence beside her during the katha is what matters most.'
+    pujaNote:'Sabitri Brata 2026 = 16 May (Jyestha Amavasya, confirmed). Fasting sunrise to sunset. Banyan tree puja — Nagoya University campus has several large trees near the north gate. If no banyan, place a banyan leaf in her hair as traditional substitute. The Brata Katha reading is the heart of the ritual — listen together. This is Odisha\'s most sacred married women\'s vrat, and you being present beside her in Japan makes it unforgettable for both of you.',
+    note:'Keep 16 May completely calm and home-based. The puja takes 3 hours of real time and emotional weight. Plan nothing else that requires travel or energy. A quiet walk in the evening after she breaks her fast is the perfect way to close the day.'
   },
 
-  // ── DAY 3: OSU MARKET (18th is Monday — go Sunday instead) ──
-  { n:'Day 3', date:'17 May', wd:'Sunday', color:'#7b3fa0', types:['together','weekend','food','market','watch'],
-    title:'Osu Komehyo + Inuyama Castle', sub:'Weekend together · Watch hunt + castle day',
-    yen:'~¥8,000 pp', yenRaw:8000,
+  // ── DAY 3: MT. FUJI (Sunday) ──
+  { n:'Day 3', date:'17 May', wd:'Sunday', color:'#1a3a6e', types:['together','fuji','shinkansen'],
+    title:'Mt. Fuji — Kawaguchiko', sub:'Full day together · The iconic view · Ekiben on the train',
+    yen:'~¥9,500 pp',
     schedule:[
-      {t:'09:00–12:30', items:['Subway to Osu Kannon (Tsurumai Line, ¥210)','Komehyo Osu — 5-floor used luxury goods store: watches, bags, jewellery','Daikokuya Osu — budget watches, vintage Seiko, Citizen, Casio','Osu Shotengai covered street — 1.7km, 1200+ shops, completely free to browse','NOTE: Osu Antique Market is on 18th (Monday) — today is Sunday. Shops open, market not running. Return Mon 18th solo for the market stalls.']},
-      {t:'12:30–14:00', items:['Osu street food lunch — miso kushi katsu, tenmusu onigiri from stalls']},
-      {t:'14:30–18:00', items:['Meitetsu from Nagoya → Inuyama (30 min, ¥560)','Inuyama Castle — Japan\'s oldest original castle tower (National Treasure, ¥200)','Honmachi Edo-era merchant street below the castle — boutique craft shops at local prices','Warabi mochi street stalls on the castle approach path']},
-      {t:'18:30–20:30', items:['Return to Nagoya','Tebasaki wings dinner at Sekai no Yamachan (Sakae original branch)']}
+      {t:'07:00–07:30',items:['🍳 Quick breakfast together before leaving (30 min)','Leave Mishima Lodge by 07:30'],cook:true},
+      {t:'07:30–10:30',items:['BUY EKIBEN before boarding: Nagoya Station has excellent platform bentōs','Board Shinkansen Nagoya → Mishima (1 hr 10 min, Hikari — Fuji-side seat: Row E, window)','Eat your Ekiben at 285 km/h watching the Japanese countryside blur past','Mt. Fuji comes into view from the RIGHT side ~40 min into journey — dramatic snow-capped peak','Mishima Station → Kawaguchiko by bus or local train (~1 hr from Mishima or ~2 hrs from Nagoya by highway bus)'],highlight:true},
+      {t:'10:30–12:30',items:['Chureito Pagoda — 398 steps, iconic Fuji + pagoda viewpoint (best before 11am clouds)','Allow 45 min for the climb — take it slow, the view from the top is everything','Walk back down, find a bench with Fuji view, just sit with her']},
+      {t:'12:30–15:30',items:['Kawaguchiko lakeside walk — Fuji reflection in lake','Lake-side café for lunch (Kawaguchiko has many good options with Fuji view)','Mt. Fuji Panoramic Ropeway — quick 3-min gondola, spectacular peak views (if clear)','Narusawa Ice Cave or Bat Cave nearby if time']},
+      {t:'15:30–19:30',items:['Return journey — buy second Ekiben/onsen manju sweets for train','Shinkansen back to Nagoya','Arrive ~19:30, dinner near Nagoya Station or take-out to lodge']}
     ],
-    food:[{name:'Miso Kushi Katsu (street)',where:'Osu Shotengai stalls',note:'Pork skewers dipped in red miso — ¥100–150 per stick. Try 4–5 sticks.',cost:'¥400–700'},{name:'Warabi Mochi',where:'Castle approach stalls, Inuyama',note:'Freshly made bracken jelly dusted in kinako powder — ethereal texture',cost:'¥300–400'},{name:'Tebasaki dinner',where:'Sekai no Yamachan, Sakae',note:'The original Nagoya chicken wings — Bandita will love the sweet-spicy glaze',cost:'¥1,500–2,000 for two'}],
-    tickets:[{name:'Inuyama Castle',price:'¥200',how:'Pay at entrance, no booking needed',note:'Open 09:00–17:00, closed Dec 29–31'},{name:'Meitetsu (return)',price:'¥1,120',how:'IC card or ticket machine at Meitetsu Nagoya Stn',note:'Per person'},{name:'Osu Shotengai + Komehyo',price:'Free entry',how:'Walk in',note:'Shops open from 11:00 daily'}],
-    budget:[{cat:'Subway Nagoya→Osu',amt:'¥420 for two'},{cat:'Meitetsu Nagoya↔Inuyama',amt:'¥2,240 for two'},{cat:'Castle entry',amt:'¥400 for two'},{cat:'Food',amt:'¥3,500–4,500 for two'}],
-    shopping:[{cat:'Watch browsing (Komehyo Osu)',amt:'¥0–50,000',note:'Budget allocation: ¥50,000 from shopping fund. Used Seiko from ¥5,000, luxury from ¥30,000+.'},{cat:'Osu Shotengai general',amt:'¥2,000–5,000',note:'From general shopping fund'}],
-    note:'The Osu Antique Market runs on the 18th and 28th of each month — 18 May is a MONDAY. Go back solo on Day 4 morning to catch the actual antique stalls. Today\'s Sunday visit to Osu covers the permanent shops (Komehyo, Daikokuya) which are open daily. The castle afternoon is the quality time with Bandita.'
+    food:[{name:'Ekiben platform bento',where:'Nagoya Station (Takashimaya basement or platform kiosks)',note:'The full Shinkansen experience — buy a beautifully packed regional bento, eat it going 285 km/h. Non-negotiable.',cost:'¥1,000–1,500 each'},{name:'Kawaguchiko lakeside café lunch',where:'Any lakeside café, Kawaguchiko',note:'Order whatever has Fuji in the window view. Soba or udon sets are ¥900–1,200.',cost:'¥900–1,200'},{name:'Onsen manju',where:'Kawaguchiko souvenir shops',note:'Soft steamed buns filled with red bean, sold near hot spring towns. Eat warm, fresh.',cost:'¥100–200 each'}],
+    tickets:[{name:'Shinkansen Nagoya↔Mishima',price:'¥7,440 return each',how:'Smart EX app (smartex.jp) — book 1 week ahead. Choose row E window seat for best Fuji view.',note:'Hikari train only — Nozomi passes Fuji too fast at tunnel section'},{name:'Chureito Pagoda',price:'Free',how:'Walk from Fujiyoshida-Higashikita Station (Fujikyu) or taxi from Kawaguchiko',note:'The 398 steps are tiring but essential'},{name:'Mt. Fuji Panoramic Ropeway',price:'¥1,200 return',how:'Buy on site. No booking needed.',note:'Skip if cloudy. Opens 09:00–17:00'}],
+    budget:[{cat:'Shinkansen return (each)',amt:'¥7,440'},{cat:'Activities',amt:'¥1,200'},{cat:'Food',amt:'¥3,000–4,000 for two'},{cat:'Ekiben (both)',amt:'¥3,000'}],
+    shopping:[{cat:'Kawaguchiko souvenirs',amt:'¥1,000–2,000',note:'Fuji-themed ceramics, lacquerware, local sake. From shopping fund.'}],
+    note:'Seat E on the Hikari Shinkansen faces the Pacific coast side — Mt. Fuji is visible on the RIGHT when going Tokyo-direction (towards Mishima), on the LEFT when returning. Book specific seats. May is one of the best months — snow still on peak, skies usually clear in the morning.'
   },
 
-  // ── DAY 4: OSU ANTIQUE MARKET (18th — MONDAY) ──
-  { n:'Day 4', date:'18 May', wd:'Monday', color:'#2c6e8a', types:['solo','market','watch','cook'],
-    title:'Osu Antique Market (18th) + Toyota Museum', sub:'Solo · Market opens from 05:00 · Wife at NIBB',
-    yen:'~¥4,500', yenRaw:4500,
+  // ── DAY 4: FIRST WEEKDAY ──
+  { n:'Day 4', date:'18 May', wd:'Monday', color:'#c0392b', types:['solo','jdm','market'],
+    title:'Liberty Walk HQ + Osu Antique Market (18th)', sub:'Solo · Lab day · Two JDM missions in one',
+    yen:'~¥4,000',
     schedule:[
-      {t:'06:00–09:00', items:['🍳 Cook breakfast for Bandita before she goes to lab (1.5 hrs)',  '  Simple: eggs, toast, miso soup from packet, cut fruit','Leave portion in fridge labelled with a note', 'This is the cook-at-home slot — don\'t skip it'], cook:true},
-      {t:'09:00–09:15', items:['Walk her to NIBB building, confirm meeting time for evening']},
-      {t:'09:30–13:00', items:['Subway → Osu Kannon (¥210)','OSU KANNON ANTIQUE MARKET — 18th of month, 05:00–16:00','~120 stalls: vintage watches, coins, ceramics, militaria, Showa collectibles','Arrive by 09:30 for good watch stock before tourist crowd','Haggling is normal and expected — start at 60% of asking price']},
-      {t:'13:00–17:00', items:['Toyota Commemorative Museum (15 min walk from Sako Stn, one stop from Nagoya Stn)','Textile Machinery + Automobile Pavilion — how Toyota started from a loom','English guided tour at 14:00 — attend this one','Noritake Garden adjacent (¥500 extra) — Japan\'s famous chinaware, craft centre']},
-      {t:'18:00+', items:['Meet Bandita at campus gate','Cook dinner together or nearby Izakaya — decide based on her energy level']}
+      {t:'07:30–09:30',items:['🍳 Cook breakfast and pack a bento for Bandita (1.5 hrs)','Leave her a note and the bento in the fridge'],cook:true},
+      {t:'09:00–09:30',items:['Walk her to NIBB, confirm evening plan']},
+      {t:'09:30–13:00',items:['Subway → Osu Kannon (Tsurumai Line, ¥210)','OSU KANNON ANTIQUE MARKET — 18th of month, opens 05:00, runs until ~16:00','~120 stalls: vintage watches, coins, militaria, Showa collectibles, ceramics','Arrive by 09:30 — the best watch stock goes before 11:00','Haggle to 60–70% of asking price — expected and welcomed','Komehyo Osu (5-floor used luxury store, open from 11:00) for Rolex/Seiko'],jdm:true},
+      {t:'13:30–17:30',items:['⚠️ Liberty Walk HQ: CLOSED MONDAYS AND TUESDAYS','Move Liberty Walk to Wednesday 20 May instead','Afternoon: Toyota Commemorative Museum (Sako Stn, ¥1,000) — CLOSED MONDAYS too','Alternative: Noritake Garden (open daily, ¥500) + Nagoya Station shopping']},
+      {t:'20:00+',items:['Bandita back from lab (~19:30)','Dinner at Osu izakaya or she picks from convenience store']}
     ],
-    food:[{name:'Market breakfast',where:'Osu stalls (open from 05:00)',note:'Stall vendors sometimes sell early morning snacks. Grab taiyaki or dorayaki.',cost:'¥200–400'},{name:'Miso Katsu lunch',where:'Misokatsu Yabaton near Toyota Museum',note:'THE Nagoya classic — dark red miso sauce on crispy pork cutlet',cost:'¥1,200–1,500'}],
-    tickets:[{name:'Osu Antique Market',price:'Free',how:'Just show up — temple grounds, Osu Kannon area',note:'18th every month, 05:00–16:00 (rain or shine)'},{name:'Toyota Commemorative Museum',price:'¥1,000',how:'Buy at entrance. Closed Mondays — WAIT: 18 May is a MONDAY. Museum is CLOSED. Swap with a different afternoon activity.',note:'⚠️ Closed Mondays — visit Noritake Garden instead (¥500, open daily)'},{name:'Noritake Garden',price:'¥500',how:'Buy at Noritake Garden gate',note:'Open daily 10:00–18:00. Museum same compound, ¥500 extra.'}],
-    budget:[{cat:'Subway',amt:'¥420'},{cat:'Noritake Garden (Toyota Museum closed)',amt:'¥500'},{cat:'Food',amt:'¥2,000–2,500'},{cat:'Groceries for dinner',amt:'¥800–1,200'}],
-    shopping:[{cat:'Antique Market watches',amt:'¥5,000–30,000',note:'Haggle hard. Vintage Seiko 5 from ¥3,000, Grand Seiko from ¥25,000+.'},{cat:'Ceramics / gifts at Noritake',amt:'¥1,000–5,000',note:'Noritake outlet sells factory seconds at 30–50% discount'}],
-    note:'⚠️ IMPORTANT: Toyota Commemorative Museum is CLOSED on Mondays. Since Day 4 is Monday 18 May, visit Noritake Garden instead (same area, open daily) and move the Toyota Museum to a different weekday. This is a calendar error in the original plan — now corrected.'
+    food:[{name:'Osu market breakfast stalls',where:'Market vendor area, pre-09:30',note:'Street coffee (¥120 from vending machine), taiyaki, or early ramen near Osu',cost:'¥200–600'},{name:'Noritake café lunch',where:'Noritake Garden, Nishi-ku',note:'Pleasant garden café if visiting Noritake. Udon set ¥900.',cost:'¥800–1,000'}],
+    tickets:[{name:'Osu Antique Market (18th)',price:'Free',how:'Just arrive — Osu Kannon temple grounds',note:'18th every month rain or shine. Cash only at stalls.'},{name:'Noritake Garden',price:'¥500',how:'Buy at gate (Toyota Museum closed Mondays)',note:'Open daily 10:00–18:00'}],
+    budget:[{cat:'Subway',amt:'¥420'},{cat:'Noritake',amt:'¥500'},{cat:'Food',amt:'¥1,800–2,500'}],
+    shopping:[{cat:'Osu Antique Market (watches)',amt:'¥5,000–40,000',note:'First watch hunting session. Budget ¥40,000 from watch fund for this day.'},{cat:'Komehyo Osu',amt:'¥0–30,000',note:'Open from 11:00. No pressure — just browse.'}],
+    note:'⚠️ Liberty Walk is CLOSED Monday and Tuesday. Confirmed hours: Wed–Sun 10:00–19:00. Do NOT visit today — go Wednesday instead. ⚠️ Toyota Commemorative Museum also CLOSED Mondays — visit Thursday instead.'
   },
 
-  // ── DAY 5 ──
-  { n:'Day 5', date:'19 May', wd:'Tuesday', color:'#2c6e8a', types:['solo','auto','cook'],
-    title:'Toyota Commemorative Museum', sub:'Solo · The one that was closed yesterday',
-    yen:'~¥4,000', yenRaw:4000,
+  // ── DAY 5: LIBERTY WALK ──
+  { n:'Day 5', date:'19 May', wd:'Tuesday', color:'#c0392b', types:['solo','jdm','cook'],
+    title:'Super Autobacs Nagoya Bay + Up Garage', sub:'Solo · Lab day · JDM parts pilgrimage',
+    yen:'~¥3,500',
     schedule:[
-      {t:'07:30–09:00', items:['🍳 Cook breakfast for Bandita + pack a simple bento for her lab lunch (1.5 hrs)','Egg sandwich, onigiri, cut fruit, thermos of chai or miso soup','Leave it with a note — she will love this'], cook:true},
-      {t:'09:00–09:15', items:['Walk her to NIBB']},
-      {t:'09:30–14:00', items:['Sako Station (Meitetsu, ¥180 from Nagoya Stn, 1 stop) → Toyota Commemorative Museum','Textile Machinery Pavilion: see the Automatic Loom that launched Toyota','Automobile Pavilion: Toyota AA (1935), Crown, Corolla, Prius evolution, hybrid systems','English guided tour at 14:00 (Textile) — best in the building']},
-      {t:'14:30–17:30', items:['Explore Nagoya Station underground: Esca mall, Meieki underground','Tokyu Hands in Nagoya Station for Japanese stationery (Bandita will love this too)','Pick up groceries for cooking dinner']},
-      {t:'18:00+', items:['Meet Bandita','🍳 Cook dinner together at lodge (1.5 hrs) — simple Indian comfort food or cook Japanese rice + miso + vegetables together'], cook:true}
+      {t:'07:30–09:30',items:['🍳 Cook proper breakfast and leave lunch (1.5 hrs)','Rice + eggs + miso soup, leave portion for her'],cook:true},
+      {t:'10:00–14:00',items:['Bus or subway to Nagoya Bay (Minato ward, ~30 min from Nagoya Stn)','Super Autobacs Nagoya Bay "Woow Circuit" — one of the largest Autobacs in Japan','Ground floor: tyres, oil, electronics, accessories, racing seats, aero parts','Upper floor: diecast model cars, hobby section — 1:18 and 1:64 JDM scale models','Racing cars on display in the entrance — actual circuit spec vehicles'],jdm:true},
+      {t:'14:00–17:00',items:['Find Up Garage branch in Nagoya (check upgarage.com for nearest branch)','Used JDM parts: bucket seats, Recaro leftovers, rare wheels, NOS parts','Junk boxes: ¥500–3,000 miscellaneous performance parts','This is where you find things you cannot find anywhere else in the world'],jdm:true},
+      {t:'20:00+',items:['Bandita back from lab','Cook simple dinner together or Arimatsu ramen']}
     ],
-    food:[{name:'Komeda Coffee morning set',where:'Any Komeda (near campus)',note:'Thick toast + red bean paste + boiled egg + coffee. Order coffee, get food free.',cost:'¥600–800'},{name:'Museum café lunch',where:'Toyota Commemorative Museum',note:'Udon set or sandwich. Decent, nothing special.',cost:'¥800–1,000'},{name:'Cook dinner',where:'Mishima Lodge',note:'Make dal-rice or miso soup + Japanese rice together. Supermarket near campus: Aeon or Matsuzakaya.',cost:'¥800–1,200 (groceries)'}],
-    tickets:[{name:'Toyota Commemorative Museum',price:'¥1,000',how:'Buy at entrance. IC card not accepted — bring cash.',note:'Open Tue–Sun 09:30–17:00'},{name:'Noritake Garden combo',price:'¥1,500',how:'Combo ticket at entrance: museum + craft centre',note:'Same area — do both if time'}],
-    budget:[{cat:'Meitetsu (return)',amt:'¥360'},{cat:'Museum',amt:'¥1,000'},{cat:'Food (all day)',amt:'¥2,500–3,000'},{cat:'Groceries',amt:'¥1,000'}],
-    shopping:[],
-    note:'This is the corrected Toyota Museum day (Tuesday — open). Now properly sequenced after the Monday antique market.'
+    food:[{name:'Autobacs café / food',where:'Super Autobacs Nagoya Bay has a food area',note:'Grab lunch here — themed car culture food space. Nothing gourmet but fun.',cost:'¥700–1,000'},{name:'Port area karaage',where:'Restaurants near Nagoya Bay',note:'The port area has excellent cheap fried chicken shops and ramen. ¥500–800.',cost:'¥500–800'}],
+    tickets:[{name:'Super Autobacs Nagoya Bay',price:'Free',how:'Walk in. 木場町9-51, Minato-ku, Nagoya. Bus from Nagoya Stn.',note:'Open daily 10:00–19:30. Tax-free for foreign visitors.'},{name:'Up Garage',price:'Free',how:'Check upgarage.com for Nagoya branches',note:'Multiple Nagoya locations. Meito-ku branch is convenient.'}],
+    budget:[{cat:'Transport',amt:'¥600–800'},{cat:'Food',amt:'¥1,500–2,000'}],
+    shopping:[{cat:'Autobacs merchandise / model cars',amt:'¥3,000–15,000',note:'1:18 JDM diecasts, Autobacs exclusive items, apparel. From shopping fund.'},{cat:'Up Garage used parts',amt:'¥1,000–10,000',note:'Check your budget carefully — you can easily spend hours here.'}],
+    note:'⚠️ Liberty Walk is also CLOSED TUESDAYS. Confirmed. Visit tomorrow Wednesday instead — this day is Super Autobacs + Up Garage, which is a full afternoon activity on its own. These two together are a proper JDM pilgrimage.'
   },
 
-  // ── DAY 6 ──
-  { n:'Day 6', date:'20 May', wd:'Wednesday', color:'#b87333', types:['solo','auto'],
-    title:'Honda Collection Hall, Motegi', sub:'Solo all-day · The big one · Full day away',
-    yen:'~¥28,000', yenRaw:28000,
+  // ── DAY 6: LIBERTY WALK ──
+  { n:'Day 6', date:'20 May', wd:'Wednesday', color:'#c0392b', types:['solo','jdm'],
+    title:'Liberty Walk HQ, Owariasahi', sub:'Solo · Lab day · The JDM shrine',
+    yen:'~¥3,000',
     schedule:[
-      {t:'06:30–07:00', items:['⚠️ Very early start — no cooking this morning (too early)','Leave pre-made breakfast in fridge for Bandita (prep last night)','Leave a note']},
-      {t:'07:00–08:30', items:['Shinkansen Nagoya → Utsunomiya (1 hr 10 min, ¥9,100 reserved)']},
-      {t:'09:00–10:30', items:['Utsunomiya: rent a car (Toyota Rent-a-Car at station, ¥4,500–6,000 for 6 hrs)','Drive to Mobility Resort Motegi (~45 min, 35 km via Route 123)']},
-      {t:'10:30–16:00', items:['Honda Collection Hall — FREE entry (resort day pass ¥1,900)','~350 Honda products: first Honda Dream 1949, F1 cars, NSX, S2000, ASIMO','All exhibits in running order — staff start the engines on request','QR code Audio Story Guide: full English narration, chapter by chapter','Driving simulators, kart experience if open']},
-      {t:'16:00–17:00', items:['Drive back to Utsunomiya, return car']},
-      {t:'17:30–19:30', items:['Utsunomiya gyoza at Minmin or Masashi (station area) — don\'t miss this','Shinkansen back to Nagoya (~19:30–20:30)']},
-      {t:'20:30+', items:['🍳 Quick cook at lodge for Bandita if she hasn\'t eaten — 45 min max','Or bring back snacks / onigiri from Utsunomiya station'], cook:true}
+      {t:'07:30–09:45',items:['🍳 Cook breakfast together (1.5 hrs) — she leaves for lab at 09:45','Make proper chai and a warm meal — no rush'],cook:true},
+      {t:'10:00–10:50',items:['Meitetsu Seto Line from Nagoya: Nagoya Stn → Ozone (JR Chuo Line, 10 min) → transfer Meitetsu Seto Line → Sango Station (~30 min total)','Walk 10–15 min from Sango Stn to Liberty Walk HQ (flat streets, easy to navigate)','Address: 1-178 Setogawa-cho, Owariasahi-shi, Aichi 488-0023']},
+      {t:'11:00–14:00',items:['LIBERTY WALK HQ — open Wed–Sun 10:00–19:00, free entry','3 buildings + storage hangar: rotating LB★WORKS demo cars (Ferrari, Lamborghini, GT-R with wide-body kits)','Wataru Kato\'s personal collection: kyusha (old Japanese cars) and shakotan builds','LB CAFÉ: order coffee, sit in chairs made from slammed Lamborghini parts','Merchandise store: apparel, die-cast models, exclusive LB★WORKS items','Ask staff before photographing cars — they\'re friendly but the builds are valuable'],jdm:true},
+      {t:'14:00–17:00',items:['Combine with Toyota Automobile Museum nearby (Nagakute, 30 min from here)','OR return to Nagoya and explore Osu for watch browsing','OR visit Seto city (one more stop past Sango) — Japan\'s Pottery Capital, near LBWK']},
+      {t:'20:00+',items:['Evening with Bandita — cook dinner or Sakae food walk']}
     ],
-    food:[{name:'Utsunomiya Gyoza',where:'Minmin or Masashi (Utsunomiya Stn)',note:'Japan\'s gyoza capital. Pan-fried circular dumplings. Order the full plate (2 rounds). Do not skip this.',cost:'¥500–800'},{name:'Circuit café lunch',where:'Honda Motegi Resort',note:'On-site restaurant — reasonable set lunch menus',cost:'¥900–1,200'}],
-    tickets:[{name:'Honda Collection Hall',price:'Free',how:'No booking needed. Walk in.',note:'Open 10:00–16:30, closed Tues. 20 May is Wednesday — open.'},{name:'Mobility Resort Motegi',price:'¥1,900',how:'Buy at gate on arrival',note:'Includes all grounds access'},{name:'Shinkansen return',price:'¥18,200',how:'Book on JR app (Smart EX) or at any Shinkansen ticket machine. Reserved seats recommended.',note:'Nagoya↔Utsunomiya, reserved'},{name:'Car rental (6 hrs)',price:'¥4,500–6,000',how:'Toyota Rent-a-Car: rent.toyota.co.jp. Book 3–5 days in advance online.',note:'Utsunomiya Stn East Exit. International licence required.'}],
-    budget:[{cat:'Shinkansen (return)',amt:'¥18,200'},{cat:'Motegi resort + activities',amt:'¥2,500–3,500'},{cat:'Car rental',amt:'¥5,000'},{cat:'Food (all day)',amt:'¥2,000–2,500'}],
-    shopping:[],
-    note:'Most expensive solo day of the trip (¥27,700). Honda Motegi is genuinely unmissable for a car enthusiast — 350 exhibits, all in running order, nobody else does this. International Driving Permit required for car rental — get it from AAI/ADAI in India before travel (¥1,500 fee there, takes 1 day).'
+    food:[{name:'LB CAFÉ at Liberty Walk',where:'Inside the HQ campus',note:'Coffee + light bites in a café literally furnished with car parts. One of the most surreal café experiences in Japan.',cost:'¥600–1,000'},{name:'Seto city lunch (optional)',where:'Near Seto Station',note:'Seto is a pottery town — small lunch at a local teishoku restaurant ¥800',cost:'¥700–900'}],
+    tickets:[{name:'Liberty Walk HQ',price:'Free entry',how:'Just arrive. Wed–Sun 10:00–19:00. Closed Mon/Tue.',note:'No appointment needed. Ask staff if you want to see the workshop area.'},{name:'Meitetsu Seto Line (return)',price:'¥740 return',how:'IC card from Nagoya Stn (change at Ozone to Meitetsu)',note:'~40 min each way from Nagoya. Easy.'}],
+    budget:[{cat:'Meitetsu return',amt:'¥740'},{cat:'LB Café + food',amt:'¥1,500–2,000'}],
+    shopping:[{cat:'Liberty Walk merchandise',amt:'¥3,000–15,000',note:'Exclusive apparel, die-cast models, limited-run items not available elsewhere. From shopping fund.'}],
+    jdmNote:'Liberty Walk HQ, 1-178 Setogawa-cho, Owariasahi, Aichi. Access: Nagoya Stn → JR Chuo Line to Ozone → Meitetsu Seto Line to Sango (Sangō) → 10–15 min walk. Open Wed–Sun 10:00–19:00, CLOSED Mon/Tue. Free entry. The campus spans 3 buildings: the main showroom with demo cars, Wataru Kato\'s personal kyusha collection (old Japanese street cars), and the workshop hangar. LB Café is inside — it\'s actually very good and the interior is full of car culture references.'
   },
 
-  // ── DAY 7 ──
+  // ── DAY 7: HONDA MOTEGI ──
   { n:'Day 7', date:'21 May', wd:'Thursday', color:'#2c6e8a', types:['solo','cook'],
-    title:'Nagoya Port Aquarium + SCMAGLEV Museum', sub:'Solo · Recovery day after Motegi',
-    yen:'~¥5,500', yenRaw:5500,
+    title:'Toyota Commemorative Museum + Nagoya Castle', sub:'Solo · Lab day · Classic Nagoya',
+    yen:'~¥4,500',
     schedule:[
-      {t:'07:30–09:00', items:['🍳 Cook proper breakfast — eggs, toast, chai (1.5 hrs)','Slow morning after the big Motegi day'], cook:true},
-      {t:'09:30–12:30', items:['Subway → Port of Nagoya (Meiko Line, 20 min)','Port of Nagoya Aquarium: Beluga whales, Orca, giant spider crab (stunning)','Fuji Icebreaker museum ship (combo ticket — open the engine room!)','Walk Nagoya port observation deck — one of Japan\'s busiest cargo ports']},
-      {t:'13:00–16:30', items:['SCMAGLEV and Railway Park (near Nagoya Station)','Full-scale Shinkansen from Series 0 (1964) to SCMaglev L0 (603 km/h world record)','Book driving simulator slot at entrance (extra ¥500)']},
-      {t:'18:00+', items:['Meet Bandita','Light dinner at Osu or delivery to lodge']}
+      {t:'07:30–09:45',items:['🍳 Cook breakfast + pack bento lunch for Bandita (1.5 hrs)','Her lab is demanding — a packed homemade lunch matters enormously'],cook:true},
+      {t:'09:45–10:00',items:['Walk her to NIBB']},
+      {t:'10:00–13:30',items:['Meitetsu to Sako Stn (1 stop, ¥180) → 3-min walk to Toyota Commemorative Museum','Open Tue–Sun 09:30–17:00 (Tuesday — open today)','Textile Machinery Pavilion: Automatic Loom that launched Toyota — stunning engineering story','Automobile Pavilion: Toyota AA 1935 → Crown → Corolla → Prius → GR86','English guided tour at 14:00']},
+      {t:'14:00–17:00',items:['Me-guru tourist bus to Nagoya Castle (¥500 day pass)','Nagoya Castle + Honmaru Palace','Walk the castle grounds — beautiful in late May']},
+      {t:'20:00+',items:['Bandita back','🍳 Cook dinner together (1.5 hrs)','Her choice from supermarket'],cook:true}
     ],
-    food:[{name:'Yanagibashi Market (early option)',where:'Yanagibashi Central Market, Nagoya',note:'Nagoya\'s Tsukiji-style market — open from 05:00. If you wake early, go before the aquarium.',cost:'¥500–800'},{name:'Ebi Furai (giant fried prawn)',where:'Ebidote Shokudo, Port area',note:'Nagoya\'s unique extra-long fried prawn (30cm+). Only found near the port.',cost:'¥1,200–1,500'}],
-    tickets:[{name:'Port of Nagoya Aquarium',price:'¥2,030',how:'Buy at gate. IC card accepted.',note:'Open 09:30–17:30, Tue–Sun'},{name:'Fuji Icebreaker (combo)',price:'¥400',how:'Add-on at aquarium gate',note:'Same compound'},{name:'SCMaglev Museum',price:'¥1,000',how:'Buy at entrance. Driving sim: ¥500 extra (book at entry).',note:'Open Tue–Sun 10:00–17:30'}],
-    budget:[{cat:'Subway (return)',amt:'¥600'},{cat:'Aquarium + icebreaker',amt:'¥2,430'},{cat:'SCMaglev Museum + sim',amt:'¥1,500'},{cat:'Food',amt:'¥2,500–3,000'}],
+    food:[{name:'Museum café lunch',where:'Toyota Commemorative Museum',note:'Udon set or sandwich. Functional, decent.',cost:'¥800–1,000'},{name:'Cook dinner together',where:'Mishima Lodge',note:'Mid-trip reset — cook her favourite Indian dish together.',cost:'¥1,000–1,500 groceries'}],
+    tickets:[{name:'Toyota Commemorative Museum',price:'¥1,000',how:'Buy at entrance. Cash preferred.',note:'Open Tue–Sun 09:30–17:00. Closed Mondays.'},{name:'Nagoya Castle',price:'¥500',how:'Pay at gate',note:'Open 09:00–16:30'},{name:'Me-guru bus day pass',price:'¥500',how:'Buy on board',note:'Loops all major Nagoya sights'}],
+    budget:[{cat:'Meitetsu',amt:'¥360'},{cat:'Museum + Castle',amt:'¥1,500'},{cat:'Me-guru pass',amt:'¥500'},{cat:'Food + groceries',amt:'¥2,500–3,000'}],
     shopping:[],
-    note:'Good recovery day after the long Motegi trip. The SCMAGLEV Museum is just 10 min from Nagoya Station — the L0 Series SCMaglev prototype (603 km/h — world record) is on full display. The Linimo elevated maglev train to Toyota City also uses a similar technology — you\'ll see both on this trip.'
+    note:'This is a day for the museums — Toyota Commemorative Museum is genuinely world-class. The story of how a textile loom company became the world\'s largest automaker is told through actual working machinery.'
   },
 
-  // ── DAY 8 ──
-  { n:'Day 8', date:'22 May', wd:'Friday', color:'#2d7a4f', types:['together','food','cook'],
-    title:'Arimatsu Shibori Town + Taiwan Ramen Night', sub:'Together evening · Hidden gem 20 min from campus',
-    yen:'~¥4,000', yenRaw:4000,
+  // ── DAY 8: BLOCKED ──
+  { n:'Day 8', date:'22 May', wd:'Thursday', color:'#888', types:['together','blocked'],
+    title:'NIBB University Full-Day Event', sub:'Both at university · No external plans',
+    yen:'~¥2,000',
     schedule:[
-      {t:'08:00–09:30', items:['🍳 Cook breakfast + pack light lunch for Bandita (1.5 hrs)','Rice + egg + miso soup. She appreciates the gesture enormously.'], cook:true},
-      {t:'09:30–14:00', items:['Solo morning: Tsurumai Park nearby — weekend cultural market (if running)','Browse second-hand bookshops in Chikusa ward','Relax, read, walk campus neighbourhood']},
-      {t:'15:00–18:30', items:['Together: Meitetsu to Arimatsu (20 min from Nagoya, ¥280 pp)','Arimatsu Shibori town — 400-year-old Edo-period merchant street','Handmade tie-dye textiles sold direct from craftspeople at factory prices','Bandita will love the fabrics and craft shops — budget time here']},
-      {t:'19:00–21:00', items:['Taiwan Ramen dinner at Misei (Chikusa branch — walking distance from campus)','The original recipe invented in Nagoya. Fiery, garlicky, completely addictive.']}
+      {t:'All day',items:['Bandita has a full-day university event at NIBB','You attend as spouse if invited — otherwise be present on campus','Walk the Nagoya University campus properly — very beautiful','Toyoda Memorial Museum of Science on campus (free, small but interesting)']},
+      {t:'Evening',items:['Wait for her near the event venue','Dinner together near campus — try Miya Kishimen at Atsuta Shrine if she has energy']}
     ],
-    food:[{name:'Taiwan Ramen',where:'Misei (Chikusa branch)',note:'Spicy garlic minced pork ramen — invented in Nagoya by a Taiwanese immigrant in 1970. The go-to late-night Nagoya food.',cost:'¥700–900'},{name:'Arimatsu local snacks',where:'Arimatsu shop stalls',note:'Small shops sell local rice crackers, mochi, pickled vegetables — buy to take back',cost:'¥300–500'}],
-    tickets:[{name:'Arimatsu town',price:'Free',how:'Walk from Meitetsu Arimatsu Stn (2 min)',note:'Shops open 10:00–17:00'},{name:'Meitetsu return',price:'¥560 for two',how:'IC card',note:'Nagoya↔Arimatsu, ~20 min'}],
-    budget:[{cat:'Meitetsu',amt:'¥560 for two'},{cat:'Food (dinner)',amt:'¥1,800–2,200'},{cat:'Groceries (morning cook)',amt:'¥600'}],
-    shopping:[{cat:'Arimatsu shibori textiles',amt:'¥2,000–8,000',note:'Handmade tie-dye cotton — scarves, handkerchiefs, fabric. Fraction of Tokyo price. From shopping fund.'}],
-    note:'Arimatsu is Nagoya\'s best-kept secret for authentic craft shopping. Shibori tie-dye here has been produced for 400 years — the same families still run the workshops. Bandita will likely find this more interesting than any department store.'
-  },
-
-  // ── DAY 9 ──
-  { n:'Day 9', date:'23 May', wd:'Saturday', color:'#7b3fa0', types:['together','weekend','food'],
-    title:'Kyoto Day Trip — Temples + Nishiki Market', sub:'Full day together · Shinkansen 35 min',
-    yen:'~¥12,000 pp', yenRaw:12000,
-    schedule:[
-      {t:'07:30–08:15', items:['Shinkansen Nagoya → Kyoto (35 min, ¥2,640 Hikari/Sakura)','No reserved seat needed if buying Hikari on the day — non-reserved is ¥2,310']},
-      {t:'08:30–11:00', items:['Fushimi Inari Taisha — go EARLY before heat and crowds','Walk first 45 min of torii trail (past tourist point, where it gets dramatic)','Free, open 24 hrs — dawn light through red gates is extraordinary']},
-      {t:'11:00–13:00', items:['Nishiki Market food walk — Bandita\'s highlight of Japan','400m covered market: tofu on stick, tsukemono pickles, dashi tamago, matcha mochi, fresh nama-fu','Budget ¥1,500 each and just eat your way through']},
-      {t:'13:00–16:00', items:['Gion district: Hanamikoji cobblestone street, Yasaka Shrine (free)','Kennin-ji — Kyoto\'s oldest zen temple, stunning dragon ceiling painting','Philosopher\'s Path along the canal (late azaleas in May)']},
-      {t:'16:00–17:30', items:['Kinkaku-ji (Golden Pavilion) OR Arashiyama bamboo grove + Tenryu-ji garden','Pick based on energy — Arashiyama is further but more varied']},
-      {t:'17:30–19:00', items:['Shinkansen back to Nagoya']}
-    ],
-    food:[{name:'Nishiki Market snack crawl',where:'Nishiki Market, central Kyoto',note:'Kyoto pickles, yudofu tofu, dashimaki tamago, matcha soft serve, nama-fu wagashi. Bandita will be in food heaven. Budget ¥1,500 each.',cost:'¥1,500 each'},{name:'Kyoto-style Obanzai lunch',where:'Small places near Gion',note:'Traditional multi-dish teishoku — vegetable-forward, light miso, silky tofu. The opposite of Nagoya meshi.',cost:'¥1,200–1,500'},{name:'Kyoto Ramen',where:'Ramen Koji, Kyoto Station B1',note:'10 ramen shops in one basement. Perfect for a quick warm bowl before the return Shinkansen.',cost:'¥1,000–1,200'}],
-    tickets:[{name:'Fushimi Inari',price:'Free',how:'No ticket needed',note:'Open 24 hours'},{name:'Kinkaku-ji',price:'¥500',how:'Buy at gate — no pre-booking',note:'Daily 09:00–17:00. Can get crowded.'},{name:'Tenryu-ji garden',price:'¥500',how:'Buy at garden gate',note:'Garden only. Full temple ¥800.'},{name:'Shinkansen return (each)',price:'¥2,640',how:'Book on JR app (Smart EX) or machine at Nagoya Stn. Can buy on day for Hikari/Sakura.',note:'Non-reserved: ¥2,310 (stand-by)'}],
-    budget:[{cat:'Shinkansen (per person)',amt:'¥5,280'},{cat:'Entry tickets (both)',amt:'¥1,000'},{cat:'Food (both)',amt:'¥5,000–6,000'}],
-    shopping:[{cat:'Nishiki Market pickles/sweets',amt:'¥1,000–2,000',note:'Omiyage gifts: Kyoto tsukemono, yatsuhashi sweets. From shopping fund.'},{cat:'Gion craft shops',amt:'¥2,000–5,000',note:'Tenugui cloth, ceramic tea cups, Kyoto textiles. Bandita will want time here.'}],
-    note:'Nagoya→Kyoto is 35 minutes on the Shinkansen — one of the best-value day trips in Japan. Nishiki Market is Bandita\'s day more than yours. Give her time there.'
-  },
-
-  // ── DAY 10 ──
-  { n:'Day 10', date:'24 May', wd:'Sunday', color:'#7b3fa0', types:['together','weekend','food'],
-    title:'Hamamatsu — Yamaha + Suzuki + Local Food', sub:'Full day together · Dual museum + Hamamatsu gyoza',
-    yen:'~¥9,000 pp', yenRaw:9000,
-    schedule:[
-      {t:'08:00–08:45', items:['Shinkansen Nagoya → Hamamatsu (30 min, ¥2,720 Kodama/Hikari)','⚠️ Nozomi does NOT stop at Hamamatsu — must use Hikari or Kodama']},
-      {t:'09:00–12:00', items:['JR local Hamamatsu → Iwata (12 min, ¥200)','Yamaha Communication Plaza — FREE, no reservation needed','Full Yamaha story: motorcycles → pianos → outboard motors → MotoGP','Valentino Rossi\'s actual race bikes on display','Bandita\'s angle: Yamaha grand piano section is genuinely stunning — Yamaha covers music, not just bikes']},
-      {t:'12:00–13:30', items:['Return to Hamamatsu','Hamamatsu gyoza lunch — Bandita will love these']},
-      {t:'13:30–16:30', items:['Suzuki Plaza — FREE, RESERVATION REQUIRED (book via suzukiworld.co.jp)','3 floors: textile loom history → motorcycles/cars → production line','Suzuki Katana original, classic GSX-R lineup, Jimny 4x4 history','The loom floor is surprisingly beautiful — old Suzuki was a textile company']},
-      {t:'17:00–19:30', items:['Shinkansen back to Nagoya','Dinner in Nagoya or pick up bento from station']}
-    ],
-    food:[{name:'Hamamatsu Gyoza',where:'Ishimaru Shoten or Gyoza no Nakamuraya',note:'Pan-fried flat dumplings in a circular arrangement with bean sprout pile in the centre. Hamamatsu\'s claim to fame.',cost:'¥600–800'},{name:'Lake Hamana Unagi',where:'Yanagiya or Unatoto',note:'Lake Hamana is Japan\'s most famous eel farming lake. Budget option: Unadon (eel on rice) at ¥1,500. Not ¥3,500 hitsumabushi.',cost:'¥1,500 (unadon)'}],
-    tickets:[{name:'Yamaha Communication Plaza',price:'Free',how:'Walk in. Open Tue–Sun 09:00–17:00.',note:'Closed Monday. 24 May is Sunday — open.'},{name:'Suzuki Plaza',price:'Free',how:'MUST BOOK IN ADVANCE at suzukiworld.co.jp (partially in Japanese, use Google Translate)',note:'Book at least 1 week before travel. Free reservation.'},{name:'Shinkansen return (each)',price:'¥5,440',how:'JR Smart EX app or ticket machine at Nagoya Stn',note:'Use Hikari or Kodama only'}],
-    budget:[{cat:'Shinkansen (each)',amt:'¥5,440'},{cat:'Local train Hamamatsu↔Iwata',amt:'¥400'},{cat:'Food (both)',amt:'¥4,000–5,000'}],
-    shopping:[{cat:'Hamamatsu / Yamaha merchandise',amt:'¥2,000–5,000',note:'Yamaha brand goods from the plaza shop. From shopping fund.'}],
-    note:'Book Suzuki Plaza now — it\'s free but reservation fills up. Do this as soon as you start planning. Yamaha Communication Plaza is the most "couple-friendly" museum of the trip — the piano and music section means Bandita has something genuinely interesting to see, not just bikes.'
-  },
-
-  // ── DAY 11 ──
-  { n:'Day 11', date:'25 May', wd:'Monday', color:'#2c6e8a', types:['solo','auto','cook'],
-    title:'Toyota Automobile Museum + Atsuta Shrine', sub:'Solo · Different from Toyota Comm. Museum',
-    yen:'~¥5,000', yenRaw:5000,
-    schedule:[
-      {t:'07:30–09:00', items:['🍳 Cook proper Indian breakfast + flask of chai for Bandita (1.5 hrs)','Pack a note with her lab schedule — show you know her routine'], cook:true},
-      {t:'09:30–14:00', items:['Linimo maglev train from Fujigaoka → Geidaidori (45 min, ¥610)','Toyota Automobile Museum — 180+ vehicles, global history (NOT the same as Day 5)','European vintage, American muscle, Japanese classics — Jaguar E-type, Ford Model T, Toyota 2000GT, AE86','Separate motorsport gallery: F1 cars, rally cars']},
-      {t:'14:30–17:30', items:['Atsuta Jingu Shrine — second most sacred Shinto shrine in Japan','Ancient cypress forest, samurai swords in treasure hall','Miya Kishimen stall on the shrine grounds — eat the flat noodles here']},
-      {t:'18:00+', items:['Back to Nagoya','🍳 Cook dinner for both (1.5 hrs) — her choice'], cook:true}
-    ],
-    food:[{name:'Miya Kishimen at Atsuta Shrine',where:'Shrine grounds stall',note:'Flat wide noodles in warm dashi broth, served outdoors in the cypress forest. The setting is half the taste.',cost:'¥700–900'},{name:'Cook dinner',where:'Mishima Lodge',note:'Her choice tonight — ask her what she wants from the supermarket',cost:'¥1,000–1,500 (groceries)'}],
-    tickets:[{name:'Toyota Automobile Museum',price:'¥1,200',how:'Buy at gate. Open Tue–Sun 09:30–17:00.',note:'⚠️ Closed Mondays. 25 May is Monday — CLOSED. Move to Tuesday 26 May.'},{name:'Linimo round trip',price:'¥1,220',how:'IC card at any Fujigaoka Stn machine',note:'HSST maglev people-mover — itself worth the ride'},{name:'Atsuta Shrine',price:'Free',how:'No ticket',note:'Treasure Hall: ¥500 extra'}],
-    budget:[{cat:'Linimo',amt:'¥1,220'},{cat:'Museum',amt:'¥1,200'},{cat:'Food + groceries',amt:'¥3,000–3,500'}],
+    food:[{name:'Campus canteen',where:'Nagoya University student dining',note:'Eat at the university canteen — excellent value, authentic campus food',cost:'¥400–700'},{name:'Miya Kishimen (evening)',where:'Atsuta Jingu Shrine stall',note:'Flat noodles in dashi broth in a forest setting — best evening after a campus day',cost:'¥700–900'}],
+    tickets:[{name:'All campus',price:'Free',how:'—',note:'University event day — follow her lead'}],
+    budget:[{cat:'Campus food',amt:'¥800–1,400'},{cat:'Kishimen dinner',amt:'¥1,400–1,800'}],
     shopping:[],
-    note:'⚠️ Toyota Automobile Museum is also closed Mondays. 25 May is Monday — the museum is closed. Swap this day: visit Atsuta Shrine + Yanagibashi Market instead, and push the museum to Tuesday 26 May. Calendar corrected in the full plan.'
+    note:'This is a complete block — no plans outside campus. Use the day to walk the entire Nagoya University campus, read, rest, and be ready for a big Tokyo weekend that starts tomorrow evening.'
   },
 
-  // ── DAY 12 ──
-  { n:'Day 12', date:'26 May', wd:'Tuesday', color:'#2c6e8a', types:['solo','market','cook'],
-    title:'Nittaiji Temple Market (21st) — ❌ Missed · Nagoya Deep Dive', sub:'Solo · Exploring hidden Nagoya + cook',
-    yen:'~¥3,000', yenRaw:3000,
+  // ── DAY 9: DEPART TOKYO ──
+  { n:'Day 9', date:'23 May', wd:'Friday', color:'#7b3fa0', types:['together','weekend','shinkansen'],
+    title:'Nagoya → Tokyo · Arrive Friday evening', sub:'Shinkansen evening departure · Weekend begins',
+    yen:'~¥9,000 pp',
     schedule:[
-      {t:'07:30–09:00', items:['🍳 Cook and eat a slow breakfast together before she leaves (1.5 hrs)','Pancakes or French toast — try making Japanese tamagoyaki together',], cook:true},
-      {t:'09:30–12:30', items:['Toyota Automobile Museum (moved from Day 11 — Tuesday, OPEN)','Linimo from Fujigaoka, 45 min']},
-      {t:'12:30–15:00', items:['Return to Nagoya','Higashiyama Zoo &amp; Botanical Garden (15 min by subway)','May bloom — azaleas, wisteria, roses in the botanical section','Higashiyama Sky Tower — free views of Nagoya skyline']},
-      {t:'18:00+', items:['Evening with Bandita — walk Kakuozan boutique neighbourhood together']}
+      {t:'07:30–09:45',items:['🍳 Cook and eat breakfast together (1.5 hrs) — she works Friday morning'],cook:true},
+      {t:'10:00–17:00',items:['She is at lab until ~17:00 (try to finish early on Friday)','You: light solo day — Honda Motegi trip (see Day 7 note — swap if energy allows) OR relax in Nagoya','OR visit Super Autobacs again for any remaining shopping']},
+      {t:'17:30–18:30',items:['She finishes lab, you meet at campus gate','Quick change, pack overnight bag (1 night)']},
+      {t:'18:30–19:00',items:['Buy EKIBEN at Nagoya Station for the Tokyo journey — this IS the experience','Look for the "Hitsumabushi" or "Eel" bento or the "Shinkansen Ekiben" sets'],highlight:true},
+      {t:'19:00–20:40',items:['Board Nozomi/Hikari Nagoya → Tokyo (1 hr 40 min on Nozomi)','Eat your Ekiben together at 285 km/h as Japan rushes past in the dark','Arrive Tokyo Station ~20:40']},
+      {t:'21:00+',items:['Check in to hotel (Shinjuku / Shibuya area recommended)','Late night Ramen near the hotel — Tokyo has 24hr ramen shops']}
     ],
-    food:[{name:'Higashiyama Zoo café',where:'Inside zoo grounds',note:'Nothing special but pleasant. Get taiyaki from a nearby stall instead.',cost:'¥500–800'},{name:'Kakuozan café evening',where:'Kakuozan area (near campus)',note:'Nagoya\'s most charming café neighbourhood. Pick any one with a chalkboard menu.',cost:'¥600–900'}],
-    tickets:[{name:'Toyota Automobile Museum (moved)',price:'¥1,200',how:'Buy at gate',note:'Now correctly on Tuesday — open'},{name:'Higashiyama Zoo + Garden',price:'¥500',how:'Buy at gate. IC card accepted.',note:'Open 09:00–16:30. Closed Monday.'},{name:'Higashiyama Sky Tower',price:'Free',how:'Within zoo grounds',note:'170m observation tower, free with zoo entry'}],
-    budget:[{cat:'Linimo + transport',amt:'¥1,500'},{cat:'Toyota Museum',amt:'¥1,200'},{cat:'Zoo',amt:'¥500'},{cat:'Food',amt:'¥2,000'}],
+    food:[{name:'Ekiben at speed',where:'Nagoya Station platform kiosks / Takashimaya basement',note:'The whole point. Buy something special — Eel bento, Nagoya chicken wing bento, or the premium "Eki Ben" set. Eat on the Shinkansen at 285 km/h. Tell her the speed.',cost:'¥1,000–1,800 each'},{name:'Tokyo midnight ramen',where:'Near your hotel (Shinjuku has 24hr options)',note:'Arrive hungry. Tokyo ramen at midnight is a perfect start.',cost:'¥800–1,000'}],
+    tickets:[{name:'Shinkansen Nagoya→Tokyo',price:'¥11,090 each (Nozomi reserved)',how:'Smart EX app — book 1 week ahead. Best to book both Tokyo and return together.',note:'Nozomi 1hr 40 min. Hikari 2hr 20 min. Both fine.'},{name:'Hotel Tokyo Fri+Sat',price:'¥8,000–12,000/room',how:'Booking.com — Shinjuku or Shibuya preferred. Book 2–3 weeks ahead.',note:'1 night Friday + 1 night Saturday = return Sunday.'}],
+    budget:[{cat:'Shinkansen (each)',amt:'¥11,090'},{cat:'Hotel (2 nights)',amt:'¥16,000–24,000'},{cat:'Ekiben (both)',amt:'¥3,000'},{cat:'Food (all day)',amt:'¥3,000–4,000'}],
     shopping:[],
-    note:'Note: Nittaiji Temple Ennichi Market runs on the 21st of every month — 21 May is a Thursday (Day 7 in original plan). If you want to catch it, rearrange Day 7. The Ennichi market is extremely local and worth it if you can make it.'
+    note:'The Ekiben experience on the Shinkansen is one of the most Japanese things you can do. Buy something good — not a convenience bento. Ekibenya Matsuri inside Tokyo Station (on arrival) is Japan\'s best Ekiben shop if you want to buy something for the return journey too.'
   },
 
-  // ── DAY 13 ──
-  { n:'Day 13', date:'27 May', wd:'Wednesday', color:'#2c6e8a', types:['solo','cook'],
-    title:'Tokoname Pottery Town + Centrair Spotting', sub:'Solo · Hidden gem half-day · Cook evening',
-    yen:'~¥3,500', yenRaw:3500,
+  // ── DAY 10: TOKYO SATURDAY ──
+  { n:'Day 10', date:'24 May', wd:'Saturday', color:'#7b3fa0', types:['together','weekend'],
+    title:'Tokyo Full Day — Asakusa + Shibuya + Nakano Broadway', sub:'Couple day · Watches + culture + food',
+    yen:'~¥15,000 pp',
     schedule:[
-      {t:'08:00–09:30', items:['🍳 Cook hot breakfast + leave packed lunch in fridge for Bandita (1.5 hrs)','She\'s been eating convenience store lunches — this matters'], cook:true},
-      {t:'10:00–13:00', items:['Meitetsu from Kanayama → Tokoname (30 min, ¥470)','Tokoname Pottery Road — one of Japan\'s 6 ancient kiln cities','Walk the Pottery Road: giant sake jars, cat sculptures, climbing kilns','Direct-from-potter teapot shops: Tokoname kyusu from ¥2,000–5,000 (¥8,000+ in Tokyo)']},
-      {t:'13:00–16:00', items:['Meitetsu → Centrair Airport (10 min from Tokoname, ¥200)','Flight of Dreams: Boeing 787 Dreamliner display (free)','Sky deck plane spotting — free, excellent views of international traffic']},
-      {t:'18:00+', items:['🍳 Cook proper dinner for Bandita (1.5 hrs) — she picks from supermarket on her way home'], cook:true}
+      {t:'08:00–11:00',items:['Tokyo early morning: Senso-ji Temple, Asakusa — arrive before 09:00 for quiet atmosphere','Nakamise shopping street, Kaminarimon gate photos','Asakusa street food: melonpan, ningyo-yaki, fresh-made dorayaki']},
+      {t:'11:00–13:00',items:['Nakano Broadway — watch shopping (THIS is the destination for vintage Seiko/Grand Seiko)','Jackroad (3F): 6,000+ watches, Rolex/Omega/Patek/Seiko, English-speaking staff','Firekids (1F): vintage Japanese domestic watches — Grand Seiko, King Seiko, Citizen chrono','Kamekichi (3F): often fairest prices — compare before buying','Allow 2 full hours minimum — she can explore the anime/collectibles floors meanwhile']},
+      {t:'13:00–14:30',items:['Lunch near Nakano — any ramen shop on the Shotengai arcade']},
+      {t:'14:30–17:30',items:['Shibuya: Shibuya Crossing, Shibuya Sky rooftop observation (¥2,500 — spectacular)','Harajuku: Takeshita Street, Meiji Jingu Shrine (forest walk — both of you will love this)','teamLab Borderless nearby if re-opened (book ahead at teamlab.art)']},
+      {t:'18:00–21:00',items:['KAISEKI DINNER in Tokyo — the ultimate Japan food experience','Pre-book: a kaiseki restaurant in Ginza, Shinjuku, or Aoyama for 18:00','Multi-course traditional cuisine — seasonal ingredients, artwork on plates, unhurried pace'],highlight:true}
     ],
-    food:[{name:'Tokoname tea house breakfast',where:'Small café in Tokoname',note:'Local, slow, perfect with a clay pot tea. Very Japanese, very peaceful.',cost:'¥500–700'},{name:'Airport ramen',where:'Centrair terminal food court',note:'Centrair has surprisingly good ramen — best option at the airport food level.',cost:'¥900–1,100'}],
-    tickets:[{name:'Tokoname Pottery Road',price:'Free',how:'Walk at will from Tokoname Stn (5 min)',note:'Shops 09:00–17:00. Map at tourist info at station.'},{name:'Centrair Sky Deck',price:'Free',how:'No ticket, just walk up',note:'Best plane-spotting deck in central Japan'},{name:'Flight of Dreams (Boeing 787)',price:'Free to enter',how:'Walk in from airport terminal 1',note:'Shopping/food area around actual 787 aircraft'}],
-    budget:[{cat:'Meitetsu return',amt:'¥1,340'},{cat:'Food',amt:'¥2,000'},{cat:'Groceries for dinner',amt:'¥1,000–1,500'}],
-    shopping:[{cat:'Tokoname kyusu teapot',amt:'¥2,000–5,000',note:'Best souvenir buy in Japan. Unglazed clay teapot — Bandita will love this for tea. From shopping fund.'}],
-    note:'Tokoname teapots are sold direct from potters. A genuine Tokoname unglazed kyusu costs ¥2,000–5,000 here vs ¥8,000–15,000 in Tokyo or Kyoto. Buy two — one for home, one as a gift.'
+    food:[{name:'Asakusa street food',where:'Nakamise-dori and side streets',note:'Ningyo-yaki (character cakes), melonpan, fresh dorayaki, matcha soft serve. Budget ¥600.',cost:'¥400–700'},{name:'Nakano lunch ramen',where:'Any shop on Nakano Shotengai',note:'Local lunch ramen ¥800–1,000. Nakano is a neighbourhood for locals — good authentic food.',cost:'¥800–1,000'},{name:'KAISEKI DINNER',where:'Tokyo — pre-book a reputable kaiseki restaurant',note:'Multi-course traditional Japanese cuisine. 7–12 courses, seasonal ingredients, plating as art. This is the definitive Japan fine dining experience — not expensive, deeply Japanese. Budget ¥8,000–15,000 per person. Book via Tableall.com or Omakase.jp.',cost:'¥8,000–15,000 per person'}],
+    tickets:[{name:'Nakano Broadway (watching shopping)',price:'Free entry',how:'JR Chuo Line to Nakano Station, exit North, walk 5 min through Shotengai',note:'All watch shops 3F. Jackroad + Kamekichi + Firekids in same building.'},{name:'Shibuya Sky',price:'¥2,500',how:'Book online at shibuyasky.jp — sell out on weekends',note:'Open 10:00–22:30. Last entry 21:00'},{name:'Kaiseki dinner',price:'¥8,000–15,000 pp',how:'Book via Tableall (tableall.com) or call restaurant directly. Book 1–2 weeks ahead.',note:'Best areas: Ginza, Shinjuku, Aoyama'}],
+    budget:[{cat:'Transport (IC card)',amt:'¥1,000'},{cat:'Shibuya Sky',amt:'¥5,000 for two'},{cat:'Food (all day)',amt:'¥3,000–4,000'},{cat:'Kaiseki dinner',amt:'¥16,000–30,000 for two'}],
+    shopping:[{cat:'Nakano Broadway watches',amt:'¥20,000–100,000',note:'This is the main Tokyo watch buy. Budget ¥60,000–80,000 from watch fund. Compare across Jackroad, Kamekichi, and Firekids before buying anything.'},{cat:'Harajuku / Shibuya',amt:'¥5,000–15,000',note:'Bandita will find interesting fashion. From general shopping fund.'}],
+    note:'Kaiseki dinner is the food highlight of the whole trip. This is not cheap but it is the single most Japanese culinary experience you can have — 7 to 12 small courses, each a work of art, unhurried service, sake pairing if you want. Book it 1–2 weeks before travel. The Nakano Broadway watch section is essential — Jackroad alone has 6,000+ pieces.'
   },
 
-  // ── DAY 14 ──
-  { n:'Day 14', date:'28 May', wd:'Thursday', color:'#b87333', types:['solo','auto','market','watch'],
-    title:'Osu Antique Market (28th) + Suzuki/Hamamatsu Option', sub:'Solo · Second market day · Watch hunt round 2',
-    yen:'~¥5,000', yenRaw:5000,
+  // ── DAY 11: TOKYO SUNDAY + RETURN ──
+  { n:'Day 11', date:'25 May', wd:'Sunday', color:'#7b3fa0', types:['together','weekend','shinkansen'],
+    title:'Tokyo Morning + Shinkansen Return', sub:'Late checkout → afternoon back in Nagoya',
+    yen:'~¥14,000 pp',
     schedule:[
-      {t:'05:30–07:00', items:['Osu Antique Market opens at 05:00 — go EARLY for watches','Subway → Osu Kannon (¥210)','This is the second market date — 28th of month','Dealers who missed the 18th are here, plus fresh stock']},
-      {t:'07:00–11:00', items:['Market browse: watches, coins, militaria, ceramics, vintage cameras','Best watch hunting strategy: arrive 05:30–06:30, do full circuit, revisit the best stalls']},
-      {t:'11:00–13:00', items:['Second Street Osu (chain used goods) — just off the arcade','Hard-Off equivalent — watches from ¥3,000, some gems in the Junk box']},
-      {t:'13:00–17:00', items:['Option A: Hamamatsu (Shinkansen 30 min) → Hamamatsu Air Park (JASDF Museum, free)','F-104J Starfighter, T-33 trainers, rockets, VTOL aircraft — deeply impressive','Option B: Stay Nagoya, visit Nagoya City Art Museum (¥500) near Sakae']},
-      {t:'18:00+', items:['Back to Nagoya','Meet Bandita — easy dinner at campus izakaya']}
+      {t:'08:00–11:30',items:['Late Tokyo morning — slow breakfast near hotel','Ueno Park walk (free, beautiful in morning light)','Ameyoko market under the train tracks — street food, fresh fish, dried goods, cheap clothing','Akihabara briefly: car model/diecast shops, JDM hobby stores (10 min walk from Ueno)']},
+      {t:'12:00–13:00',items:['Tokyo Station: Ekibenya Matsuri — the world\'s best Ekiben shop','Buy TWO Ekiben each for the return journey — one for lunch, one for snacking','This shop has 200+ regional Ekiben from all over Japan'],highlight:true},
+      {t:'13:00–14:40',items:['Board Nozomi/Hikari Tokyo → Nagoya (1 hr 40 min)','Eat your Ekiben — sit on the LEFT side of the train to catch Mt. Fuji (D/E seats)','Watch for Fuji ~20 min after departure from Tokyo']},
+      {t:'15:00–20:00',items:['Arrive Nagoya ~14:40','Rest at Mishima Lodge','🍳 Cook light dinner — she\'s back, you\'re back, quiet evening'],cook:true}
     ],
-    food:[{name:'Market stall breakfast',where:'Osu Antique Market vendors',note:'Early vendors sell coffee and snacks. Hot canned coffee from a vending machine is ¥120.',cost:'¥200–400'},{name:'Osu street food lunch',where:'Osu Shotengai',note:'Gyoza, takoyaki, tempura skewers — pick up as you walk the arcade',cost:'¥600–1,000'}],
-    tickets:[{name:'Osu Antique Market (28th)',price:'Free',how:'Just show up at Osu Kannon temple grounds, from 05:00',note:'28th every month, rain or shine'},{name:'Hamamatsu Air Park',price:'Free',how:'No booking needed. Open 09:00–16:30.',note:'Closed some Tuesdays — 28 May is Thursday, open'},{name:'Shinkansen Nagoya↔Hamamatsu (if going)',price:'¥5,440 return',how:'JR machine or Smart EX app',note:'Only if doing Hamamatsu option'}],
-    budget:[{cat:'Subway',amt:'¥420'},{cat:'Shinkansen (if Hamamatsu)',amt:'¥5,440'},{cat:'Food',amt:'¥1,500–2,000'}],
-    shopping:[{cat:'Antique Market watches (28th)',amt:'¥10,000–50,000',note:'Second attempt. Budget ¥50,000 from watch fund. Better to buy here than in Tokyo if you find the right piece.'},{cat:'Second Street Osu',amt:'¥3,000–15,000',note:'Budget used watches and Junk box gems'}],
-    note:'This is your second and final Osu Antique Market day. Go earlier than last time — 05:30–06:00. The serious watch collectors (Japanese dealers buying for stock) arrive at 05:00. By 09:00 the good pieces are gone. Have cash ready — market vendors rarely take cards.'
+    food:[{name:'Ameyoko market breakfast',where:'Ameyoko under Yamanote tracks, Ueno',note:'Fresh tamagoyaki on stick, dried seafood samples, roasted nuts, onigiri. Budget ¥400–600.',cost:'¥400–600'},{name:'Ekibenya Matsuri Ekiben',where:'Tokyo Station B1, near Shinkansen gates',note:'200+ Ekiben from across Japan. Buy something extraordinary — the Soya regional bento, the crab bento, the katsu-meshi. This IS the Shinkansen experience at its peak.',cost:'¥1,200–1,800 each'}],
+    tickets:[{name:'Shinkansen Tokyo→Nagoya',price:'¥11,090 each',how:'Smart EX — book with outward journey as package',note:'Sit D/E LEFT window for Mt. Fuji view on return trip'}],
+    budget:[{cat:'Shinkansen return (each)',amt:'¥11,090'},{cat:'Ekiben + food (all day)',amt:'¥4,000–5,000 for two'},{cat:'Akihabara model shopping',amt:'¥2,000–5,000'}],
+    shopping:[{cat:'Akihabara JDM model cars',amt:'¥2,000–8,000',note:'Best 1:64 JDM diecast selection in Japan. Tokyo Auto Salon exclusives sometimes available. From shopping fund.'},{cat:'Ameyoko dried goods',amt:'¥500–1,500',note:'Dried mushrooms, seaweed, snacks to take home from India. Excellent value.'}],
+    note:'Ekibenya Matsuri at Tokyo Station is the world\'s most famous Ekiben shop — 200+ regional boxes from across Japan, constantly rotating. The morning crowd is fierce. Go by 12:00. This second Ekiben journey (Tokyo → Nagoya) gives you the LEFT side Mt. Fuji view — completely different lighting from the morning.'
   },
 
-  // ── DAY 15 ──
-  { n:'Day 15', date:'29 May', wd:'Friday', color:'#2d7a4f', types:['together','food','cook'],
-    title:'Final Nagoya Evening — Full Meshi Food Crawl', sub:'Together · Last full Nagoya weekend ahead',
-    yen:'~¥5,000', yenRaw:5000,
+  // ── DAY 12: RECOVERY WEEKDAY ──
+  { n:'Day 12', date:'26 May', wd:'Monday', color:'#2c6e8a', types:['solo','cook'],
+    title:'Recovery day · Nagoya deep walk', sub:'Solo · She\'s at lab · Rest after Tokyo',
+    yen:'~¥2,500',
     schedule:[
-      {t:'08:00–09:30', items:['🍳 Cook together — make a full Indian breakfast (1.5 hrs)','Poha, or upma with Japanese ingredients, or just simple dal-chawal','She may want to participate — cook together'], cook:true},
-      {t:'09:30–13:00', items:['Solo: Chikusa ward wander, second-hand bookshops, campus museum','Relax — big weekend ahead']},
-      {t:'13:00–18:00', items:['She tries to finish lab early on Friday','Together: Kakuozan neighbourhood — Nittaiji Temple lane, boutique cafes']},
-      {t:'18:00–21:30', items:['Nagoya Meshi food crawl — the definitive eating night','1. Tebasaki at Furaibo (Sakae) → 2. Miso Nikomi Udon at Yamamotoya → 3. Ankake Spaghetti at Spaghetti House Yokoi → 4. Finish: Nagoya miso ice cream or uiro wagashi sweet']}
+      {t:'08:00–09:45',items:['🍳 Cook proper breakfast together (1.5 hrs) — slow post-Tokyo morning'],cook:true},
+      {t:'10:00–14:00',items:['Slow solo day — Higashiyama Zoo + Botanical Garden (15 min by subway)','May bloom: azaleas and wisteria in the botanical section','Higashiyama Sky Tower (170m, FREE with zoo entry) — views of Nagoya']},
+      {t:'14:00–17:00',items:['Explore Kakuozan neighbourhood near campus (boutique cafés, concept stores)','Look for Tokyu Hands near Nagoya Station — Japanese stationery and housewares for Bandita']},
+      {t:'20:00+',items:['🍳 Cook dinner (1.5 hrs) — she picks from supermarket on way home'],cook:true}
     ],
-    food:[{name:'Tebasaki at Furaibo',where:'Furaibo, Sakae',note:'Award-winning crispy wings — the definitive version. Order 10 pieces.',cost:'¥1,200–1,500'},{name:'Miso Nikomi Udon',where:'Yamamotoya Honten, Sakae',note:'Bubbling clay pot, thick noodles, red miso broth. The ultimate Nagoya comfort food.',cost:'¥1,000–1,300'},{name:'Ankake Spaghetti',where:'Spaghetti House Yokoi (original)',note:'Only in Nagoya. Thick pasta in thick spiced vegetable sauce. Bizarre, wonderful, irreplaceable.',cost:'¥900–1,100'},{name:'Uiro wagashi',where:'Any confectionery near Sakae',note:'Traditional rice-flour sweet, slightly chewy. Buy a box as airport gift on 1 Jun.',cost:'¥500–800'}],
-    tickets:[{name:'All restaurants',price:'No reservation needed',how:'Queue at peak hours (18:30–20:00)',note:'Weekday queue shorter — go 18:00 on the dot'}],
-    budget:[{cat:'Food crawl (both)',amt:'¥5,000–6,500'},{cat:'Gifts / uiro',amt:'¥500–1,000'}],
-    shopping:[{cat:'Uiro and Nagoya confectionery',amt:'¥1,000–2,000',note:'Buy gifts here — Nagoya-only sweets that can\'t be found elsewhere. From shopping fund.'}],
-    note:'This is the most important food night of the trip for Bandita. Nagoya Meshi is unlike anywhere else in Japan. Ankake Spaghetti is the weirdest and most memorable dish — don\'t skip it just because it sounds strange.'
+    food:[{name:'Komeda Coffee breakfast',where:'Any branch, near campus or zoo',note:'Morning set: thick toast + red bean paste + egg + coffee. Order coffee = breakfast is included.',cost:'¥600–800'}],
+    tickets:[{name:'Higashiyama Zoo + Garden',price:'¥500',how:'Buy at gate. IC card accepted.',note:'Open 09:00–16:30. Closed Monday — check if open this day.'},{name:'Higashiyama Sky Tower',price:'Free',how:'Included with zoo',note:'170m, good Nagoya cityscape views'}],
+    budget:[{cat:'Zoo + subway',amt:'¥900'},{cat:'Food + groceries',amt:'¥2,000–2,500'}],
+    shopping:[{cat:'Tokyu Hands stationery',amt:'¥1,000–3,000',note:'Japanese notebooks, pens, home goods — gifts for Bandita and family back home.'}],
+    note:'Deliberately light day — rest after the Tokyo weekend is important. Monday means most museums are closed (Toyota Museum, etc.) so this is the right day for a slow walk.'
   },
 
-  // ── DAY 16 ──
-  { n:'Day 16', date:'30 May', wd:'Saturday', color:'#7b3fa0', types:['together','weekend','food'],
-    title:'Shirakawa-go + Takayama', sub:'Most scenic weekend · UNESCO farmhouse villages',
-    yen:'~¥11,000 pp', yenRaw:11000,
+  // ── DAY 13: KYOTO ──
+  { n:'Day 13', date:'27 May', wd:'Tuesday', color:'#2c6e8a', types:['solo','cook'],
+    title:'Tokugawa Art Museum + Atsuta Shrine', sub:'Solo · Nagoya culture double',
+    yen:'~¥4,000',
     schedule:[
-      {t:'07:00–09:30', items:['Highway bus from Nagoya Sakura-dori → Takayama (2.5 hrs, ¥2,900)','OR Limited Express Hida from Nagoya Stn (2 hr 20 min, ¥4,460 unreserved)']},
-      {t:'09:30–12:00', items:['Takayama Old Town (Sanmachi Suji) — best-preserved Edo merchant street in Japan','Sake brewery tastings (free walk-in: Funasaka Shuzo, Hirase Shuzo, Niki Club)','Miyagawa Morning Market: mountain vegetables, pickles, local crafts — Bandita will love this']},
-      {t:'12:00–13:30', items:['Hida Beef lunch — local wagyu-style beef skewer (¥500–800) or full set (¥2,500)','This is the best value wagyu in Japan — don\'t skip']},
-      {t:'13:30–17:00', items:['Bus Takayama → Shirakawa-go (50 min, ¥1,400 one-way)','Ogimachi village — UNESCO World Heritage gassho-zukuri farmhouses','Shiroyama Viewpoint — the iconic photo of the village from the hill above','Walk between the farmhouses freely — most are museums inside']},
-      {t:'17:00–19:30', items:['Return bus → Nagoya (~3 hrs direct, ¥3,500) OR overnight at Shirakawa-go farmhouse (¥8,000–12,000/room)','Overnight is deeply recommended — cooking dinner served inside 300-yr-old farmhouse']}
+      {t:'07:30–09:45',items:['🍳 Cook breakfast + pack Bandita\'s lunch (1.5 hrs)'],cook:true},
+      {t:'10:00–13:00',items:['Tokugawa Art Museum (bus from campus, ~20 min)','National treasure scroll of The Tale of Genji (12th century)','Samurai armour, swords, feudal lord treasures','Tokugawaen Garden — Japanese strolling garden at peak May bloom']},
+      {t:'13:30–17:00',items:['Atsuta Jingu Shrine — second most sacred Shinto shrine in Japan','Ancient cypress forest, samurai swords in treasure hall','Miya Kishimen stall on the shrine grounds — flat noodles in dashi broth, served outdoors in the forest']},
+      {t:'20:00+',items:['🍳 Cook dinner together (1.5 hrs)'],cook:true}
     ],
-    food:[{name:'Hida Beef skewer',where:'Takayama Jinya-mae market stalls',note:'A5-grade local beef, ¥500–800 per skewer. Best value wagyu in Japan — better than Kobe at 1/10 the price.',cost:'¥500–800'},{name:'Miyagawa Morning Market',where:'Along Miyagawa River, Takayama',note:'Sansai mountain vegetables, fresh pickles, miso paste, local sake mochi. Shop here.',cost:'¥400–800'},{name:'Shirakawa-go farmhouse dinner',where:'Gassho minshuku (if overnight)',note:'Traditional multi-course dinner inside a 300-year-old thatched farmhouse. Usually included in room price. Unforgettable.',cost:'Included in ¥8,000–12,000 room'}],
-    tickets:[{name:'Shirakawa-go village entry',price:'¥600',how:'Pay at the village entrance suspension bridge',note:'Opens daily 08:30'},{name:'Gassho farmhouse museum',price:'¥300–400 each',how:'Pay at individual house doors',note:'Select 2–3 to enter'},{name:'Highway bus Nagoya↔Takayama',price:'¥5,800 return',how:'Book at Meitetsu Bus (bus.meitetsu.co.jp) — book 2–3 weeks in advance',note:'Very popular route, fills up fast'},{name:'Bus Takayama↔Shirakawa-go',price:'¥1,400 one-way / ¥2,600 return',how:'Buy at Takayama bus terminal on the day (no advance booking)',note:'~50 min'}],
-    budget:[{cat:'Bus (each, return)',amt:'¥5,800'},{cat:'Shirakawa-go entry',amt:'¥600 each'},{cat:'Farmhouse museums',amt:'¥600–800 for two'},{cat:'Food',amt:'¥4,000–5,000 for two'},{cat:'Overnight (optional)',amt:'¥8,000–12,000/room'}],
-    shopping:[{cat:'Takayama crafts / sake',amt:'¥2,000–5,000',note:'Hida lacquerware (shunkei-nuri), sake bottles, Takayama woodblock prints. From shopping fund.'},{cat:'Shirakawa-go souvenirs',amt:'¥1,000–2,000',note:'Farmhouse crafts, washi paper goods'}],
-    note:'Book the Meitetsu highway bus to Takayama NOW — it fills up weeks in advance. If overnight: search "Shirakawa-go minshuku" on Japanese booking sites. Jalan.net or Rakuten Travel (use Google Translate). A farmhouse guesthouse here is the single most memorable accommodation in Japan.'
+    food:[{name:'Miya Kishimen at Atsuta Shrine',where:'Shrine grounds stall',note:'Flat wide noodles in warm dashi broth, served outdoors in the ancient cypress forest. The setting is half the experience.',cost:'¥700–900'}],
+    tickets:[{name:'Tokugawa Art Museum',price:'¥1,400',how:'Buy at gate. Open Tue–Sun.',note:'Includes Tokugawaen Garden'},{name:'Atsuta Shrine',price:'Free',how:'—',note:'Treasure Hall ¥500 extra if interested'}],
+    budget:[{cat:'Transport',amt:'¥600'},{cat:'Museum + shrine',amt:'¥1,400'},{cat:'Food + groceries',amt:'¥2,500–3,000'}],
+    shopping:[],
+    note:'Atsuta Jingu is the home of the Kusanagi-no-Tsurugi, one of Japan\'s three Imperial Treasures — a sword of profound national significance. The forest atmosphere here is extraordinary.'
   },
 
-  // ── DAY 17 ──
-  { n:'Day 17', date:'31 May', wd:'Sunday', color:'#7b3fa0', types:['together','weekend','food','cook'],
-    title:'Nara Day Trip OR Rest + Final Cook', sub:'Last full day together · Her choice',
-    yen:'~¥8,000 pp', yenRaw:8000,
+  // ── DAY 14: TAKAYAMA (Sat) ──
+  { n:'Day 14', date:'28 May', wd:'Wednesday', color:'#2c6e8a', types:['solo'],
+    title:'Second Osu Market (28th) + Honda Motegi', sub:'Solo · Lab day · Last auto museum',
+    yen:'~¥28,000',
     schedule:[
-      {t:'08:00–10:00', items:['If overnight in Takayama: slow morning, second Miyagawa market visit, return bus','If staying Nagoya: late start, cook a big Indian breakfast together (1.5 hrs)'], cook:true},
-      {t:'10:00–17:00', items:['Option A (if energy): Nara day trip','JR Nagoya → Kintetsu Nara via Osaka (~1.5 hrs, ¥2,860 each)','Todai-ji Temple + Great Buddha (largest bronze Buddha in Japan)','Nara Deer Park — buy shika senbei deer crackers (¥200), get surrounded by deer','Naramachi old merchant quarter — ceramic shops 30% cheaper than Tokyo','Option B (if tired): Relaxed Nagoya final day','Yanagibashi Market morning (07:00–12:00)','Final Osu Komehyo browse for any remaining watch budget','Cook a special last dinner together at lodge']}
+      {t:'05:30–06:00',items:['Leave lodge early — VERY early start','Leave food in fridge for Bandita, note on the table']},
+      {t:'06:00–09:30',items:['OSU KANNON ANTIQUE MARKET (28th of month) — opens 05:00','Arrive by 05:30–06:00 for best watch stock','Second and final Nagoya market day — buy anything you\'ve been considering since the 18th','Have cash ready — ¥30,000–50,000 in notes']},
+      {t:'09:30–10:30',items:['Shinkansen Nagoya → Utsunomiya (1 hr 10 min, ¥9,100 reserved)']},
+      {t:'11:30–17:00',items:['Rent car at Utsunomiya (Toyota Rent-a-Car, ¥4,500–6,000, needs Int\'l licence)','Drive to Honda Collection Hall, Mobility Resort Motegi (~45 min)','FREE entry (resort day pass ¥1,900)','~350 Honda exhibits: 1949 Dream, F1 cars, NSX, S2000, ASIMO, HondaJet cabin','All in running order — staff start engines on request','QR audio guide, English throughout'],jdm:true},
+      {t:'17:00–20:30',items:['Return to Utsunomiya, Gyoza dinner (Japan\'s gyoza capital)','Shinkansen back to Nagoya (arrives ~20:30)']}
     ],
-    food:[{name:'Kakinoha Zushi',where:'Hiraso or Tanaka, Nara',note:'Pressed sushi wrapped in persimmon leaf. A Nara specialty unlike anything anywhere else.',cost:'¥800–1,200'},{name:'Warabi + Kuzu Mochi',where:'Naramachi sweets shops',note:'Nara speciality bracken starch sweets — soft, cool, dusted in roasted soy',cost:'¥400–600'},{name:'Final home-cooked dinner',where:'Mishima Lodge',note:'Cook her favourite Indian meal — this is the last dinner before you leave. Make it count.',cost:'¥1,500–2,000 (groceries)'}],
-    tickets:[{name:'Todai-ji Temple',price:'¥600',how:'Buy at gate',note:'Open 07:30–17:30 in May'},{name:'Nara transport (return)',price:'¥5,720',how:'JR to Osaka then Kintetsu to Nara. IC card works for both.',note:'Per person. Total journey ~1.5 hrs.'}],
-    budget:[{cat:'Transport (if Nara)',amt:'¥11,440 for two'},{cat:'Nara entry',amt:'¥600 each'},{cat:'Food',amt:'¥3,000–4,000'},{cat:'Last cook groceries',amt:'¥1,500–2,000'}],
-    shopping:[{cat:'Nara ceramics / crafts',amt:'¥2,000–5,000',note:'Naramachi has some of the best pottery pricing outside Tokoname. From remaining shopping fund.'},{cat:'Final omiyage gifts',amt:'¥3,000–5,000',note:'Buy here or Nagoya Station on departure day. Uiro, Kit Kat Japan flavours, Pocky, Dagashi.'}],
-    note:'Let Bandita decide — after a big weekend, she may want rest more than another city. Either option is perfect. If you cook a full Indian dinner tonight, it may be the thing she remembers most about your visit.'
+    food:[{name:'Early market coffee',where:'Vending machine ¥120 at Osu',note:'It\'s 05:30 — vending machine hot coffee is fine',cost:'¥120'},{name:'Utsunomiya Gyoza',where:'Minmin or Masashi, Utsunomiya Station',note:'Pan-fried circular dumplings — Utsunomiya is Japan\'s gyoza capital. Essential.',cost:'¥500–800'}],
+    tickets:[{name:'Osu Antique Market (28th)',price:'Free',how:'Temple grounds from 05:00',note:'Cash only. Final Nagoya market opportunity.'},{name:'Shinkansen return (Nagoya↔Utsunomiya)',price:'¥18,200',how:'Smart EX app — book in advance',note:'Long but worth it for Honda Motegi'},{name:'Honda Collection Hall',price:'Free + ¥1,900 resort',how:'Buy resort pass at gate',note:'Open 10:00–16:30'},{name:'Car rental Utsunomiya',price:'¥4,500–6,000',how:'rent.toyota.co.jp — book 5 days ahead',note:'International Driving Permit required'}],
+    budget:[{cat:'Shinkansen return',amt:'¥18,200'},{cat:'Resort + car rental',amt:'¥6,500–8,000'},{cat:'Food',amt:'¥2,000–2,500'}],
+    shopping:[{cat:'Osu Antique Market (watches)',amt:'¥10,000–50,000',note:'Final opportunity in Nagoya. Best to buy today if you haven\'t yet — Tokyo was already done.'}],
+    note:'Very long day — 05:30 market + Shinkansen + Motegi + return. Pack light. Honda Motegi is the single most impressive automobile museum visit of the entire trip. Every exhibit is kept in running order. The F1 cars are STARTED. Worth every yen and every minute.'
+  },
+
+  // ── DAY 15: TAKAYAMA (Sat) ──
+  { n:'Day 15', date:'29 May', wd:'Friday', color:'#2d7a4f', types:['together','cook'],
+    title:'Last Nagoya Evening — Food Crawl', sub:'Together · Final Nagoya food night',
+    yen:'~¥5,000',
+    schedule:[
+      {t:'08:00–09:45',items:['🍳 Cook together — full Indian breakfast, slow morning (1.5 hrs)'],cook:true},
+      {t:'10:00–17:00',items:['She at lab until ~17:00 (try for early Friday finish)','You: final Nagoya browse — Osu Komehyo, Sakae Central Park mall for any remaining gifts']},
+      {t:'18:00–22:00',items:['NAGOYA MESHI FOOD CRAWL — the definitive eating night','1st: Tebasaki wings at Furaibo (Sakae) — award-winning crispy chicken wings','2nd: Miso Nikomi Udon at Yamamotoya Honten — bubbling clay pot red miso udon','3rd: Ankake Spaghetti at Spaghetti House Yokoi — Nagoya\'s weirdest greatest dish','4th: Uiro wagashi sweet from a confectionery for the walk home'],highlight:true}
+    ],
+    food:[{name:'Tebasaki at Furaibo',where:'Furaibo, Sakae',note:'The definitive Nagoya chicken wings. Order 10.',cost:'¥1,200–1,500'},{name:'Miso Nikomi Udon',where:'Yamamotoya Honten',note:'Bubbling clay pot. Thick noodles. Red miso broth. 10/10.',cost:'¥1,000–1,300'},{name:'Ankake Spaghetti',where:'Spaghetti House Yokoi (original)',note:'Invented in Nagoya. Thick pasta in thick spiced vegetable sauce. Only exists here.',cost:'¥900–1,100'}],
+    tickets:[{name:'All restaurants',price:'No reservation',how:'Queue — go 18:00 to beat peak',note:''}],
+    budget:[{cat:'Food crawl (both)',amt:'¥5,000–6,000'},{cat:'Gift shopping',amt:'¥1,000–2,000'}],
+    shopping:[{cat:'Uiro + Nagoya confectionery',amt:'¥1,000–2,000',note:'Nagoya-only sweets as airport gifts. From shopping fund.'}],
+    note:'This is the last proper Nagoya evening. Bandita will love Ankake Spaghetti — it is the most uniquely Nagoya thing on the trip and she will talk about it for months.'
+  },
+
+  // ── DAY 16: TAKAYAMA + GERO (Sat) ──
+  { n:'Day 16', date:'30 May', wd:'Saturday', color:'#7b3fa0', types:['together','weekend','experience','onsen','kaiseki'],
+    title:'Gero Onsen Ryokan Overnight — Kaiseki + Onsen', sub:'Most romantic night of the trip · Together',
+    yen:'~¥15,000 pp',
+    schedule:[
+      {t:'07:00–09:30',items:['Direct bus from Nagoya Stn to Gero Onsen (2.5 hrs, ¥2,800 one-way)','Alternatively: JR Limited Express Wide View Hida (1 hr 40 min, ¥3,860 one-way)','Scenic route through Gifu mountains — dramatic river valleys'],highlight:true},
+      {t:'10:00–14:00',items:['Gero Onsen town walk — one of Japan\'s three most famous hot spring towns','Ashiyu (free foot-bath pools) scattered around town — dip your feet, watch the river','Gero Onsen Gassho-mura open air museum (¥600) — 9 thatched farmhouses in mountain setting']},
+      {t:'14:00–16:00',items:['Check in to ryokan (check-in typically 15:00)','Recommended: Yunoshimakan (400 years old, river views, kaiseki meals in room) or Suihouen']},
+      {t:'16:00–19:00',items:['ONSEN — soak in the hot spring together (communal baths or private bath in room)','Rotenburo (outdoor open-air bath) overlooks the Hida River and mountains','The water is naturally hot, silky-smooth on skin — famous for beauty properties'],highlight:true},
+      {t:'19:00–21:00',items:['KAISEKI DINNER in your room','7–12 courses, seasonal ingredients, presented as art on lacquerware plates','Hida Beef, river fish, mountain vegetables, seasonal tofu, miso soup variations','Sake pairing if desired — local Hida sake is exceptional'],highlight:true},
+      {t:'21:00–23:00',items:['Evening rotenburo again — stars visible over the mountains at night','Best night of the whole trip']}
+    ],
+    food:[{name:'KAISEKI DINNER at ryokan',where:'Your ryokan room, Gero Onsen',note:'Served in your tatami room — 7 to 12 courses, usually Hida Beef, river fish, mountain vegetable dishes, seasonal tofu, finishing with rice + pickles + miso. Included in ryokan price. This is authentic kaiseki cuisine.',cost:'Included in room'},{name:'Gero town lunch',where:'Any small restaurant in Gero Onsen town',note:'Hida Beef ramen or teishoku lunch before check-in time',cost:'¥900–1,400'}],
+    tickets:[{name:'Ryokan room (1 night, 2 people)',price:'¥20,000–35,000/room',how:'Book on Jalan.net or Rakuten Travel (English option). Book 3–4 weeks ahead for Yunoshimakan or Suihouen. Dinner + breakfast included.',note:'Yunoshimakan: 645 Yunoshima, Gero (400-year-old, gorgeous). Suihouen: hillside, panoramic views.'},{name:'Bus Nagoya→Gero',price:'¥2,800 one-way',how:'Reserve at Nagoya Bus Terminal (Meitetsu) 2+ days ahead',note:'Or JR Hida LEX ¥3,860, 1hr 40min — faster and scenic'},{name:'Gero Gassho-mura',price:'¥600',how:'Buy at gate',note:'Optional — open air museum near town'}],
+    budget:[{cat:'Bus/train return (each)',amt:'¥5,600–7,720'},{cat:'Ryokan room (dinner+breakfast)',amt:'¥20,000–35,000'},{cat:'Lunch + activities',amt:'¥2,000–3,000'}],
+    shopping:[{cat:'Local sake from Gero / Hida',amt:'¥1,500–4,000',note:'Buy a bottle of Hida Sake to take home from the ryokan gift shop.'}],
+    expNote:'Gero Onsen is one of Japan\'s three most celebrated hot spring destinations. The combination of natural onsen water (silky smooth, rich in minerals), tatami room kaiseki dinner, and rotenburo under mountain stars is the quintessential Japan ryokan experience. It is 1 hr 40 min from Nagoya by the Wide View Hida express — one of Japan\'s most scenic train journeys. Yunoshimakan has been welcoming guests since 1624. This is the most romantically Japanese night of the whole trip.'
+  },
+
+  // ── DAY 17: RETURN + SHIRAKAWA ──
+  { n:'Day 17', date:'31 May', wd:'Sunday', color:'#7b3fa0', types:['together','weekend','experience'],
+    title:'Takayama + Sake Breweries + Return', sub:'Return via Takayama · Sake tasting + old town',
+    yen:'~¥8,000 pp',
+    schedule:[
+      {t:'07:00–09:00',items:['Ryokan breakfast — Japanese-style included: rice, miso, grilled fish, pickles, tofu','Check out at 10:00','Hida River morning walk — Gero town is beautiful at dawn']},
+      {t:'09:30–10:30',items:['JR Hida LEX Gero → Takayama (45 min, ¥1,620) — scenic mountain pass'],highlight:true},
+      {t:'10:30–13:30',items:['Takayama Old Town (Sanmachi Suji) — best-preserved Edo merchant street in Japan','Miyagawa Morning Market: mountain vegetables, pickles, miso paste, local crafts','SAKE BREWERY TOUR: All 6 breweries are within a 10-minute walk of each other']},
+      {t:'11:00–12:30',items:['Funasaka Brewery: tasting counter, ¥200 per cup, yuzu sake is extraordinary','Hirase Brewery: unlimited tasting for 30 min flat fee (~¥500) — try the aged sake','Harada, Niki, Kasei breweries: all free walk-in tastings','Look for sakabayashi (cedar ball above the door) to identify breweries'],highlight:true},
+      {t:'13:00–14:00',items:['Hida Beef skewer lunch — ¥500–800 per stick at market stalls','Best value wagyu in Japan — comparable to Kobe beef at 1/10 the price']},
+      {t:'14:30–17:00',items:['Highway bus Takayama → Nagoya (2.5 hrs, ¥2,900)','Or JR Hida LEX Takayama → Nagoya (2 hr 20 min, ¥4,460)']},
+      {t:'17:30+',items:['Back in Nagoya','🍳 Cook last Indian dinner together at lodge (1.5 hrs) — her favourite meal'],cook:true}
+    ],
+    food:[{name:'Ryokan breakfast',where:'Included at Gero ryokan',note:'Japanese-style breakfast in your tatami room. Eat every dish — miso, grilled fish, tofu, pickles, rice. This is how Japan starts the morning.',cost:'Included'},{name:'Funasaka + Hirase sake tasting',where:'Sanmachi Suji, Takayama',note:'Walk between all 6 breweries (10 min total). Use ¥200 tokens at Funasaka. Unlimited 30-min tasting at Hirase for ¥500. The yuzu sake and aged sake (over 20 years) are exceptional.',cost:'¥500–1,500 per person'},{name:'Hida Beef skewer',where:'Takayama market stalls',note:'The best-value wagyu in Japan. One skewer each is enough. Don\'t eat too much before sake.',cost:'¥500–800'}],
+    tickets:[{name:'JR Hida Gero→Takayama',price:'¥1,620',how:'IC card or at station. Reserved seat recommended.',note:'45 min, scenic mountain route'},{name:'Bus Takayama→Nagoya',price:'¥2,900',how:'Reserve at Takayama bus terminal on day',note:'2.5 hrs — doable'}],
+    budget:[{cat:'JR Gero↔Takayama',amt:'¥3,240 for two'},{cat:'Bus Takayama→Nagoya',amt:'¥5,800 for two'},{cat:'Sake tasting (both)',amt:'¥1,500–3,000'},{cat:'Food',amt:'¥3,000–4,000 for two'},{cat:'Groceries for last dinner',amt:'¥1,500–2,000'}],
+    shopping:[{cat:'Takayama sake bottles',amt:'¥2,000–6,000',note:'Buy 2–3 bottles to take home from India. Hida sake does not export well — buy here. From shopping fund.'},{cat:'Takayama lacquerware (Shunkei-nuri)',amt:'¥2,000–8,000',note:'Traditional Hida lacquer goods — chopsticks, bowls, trays. Excellent quality, unique to this region.'}],
+    note:'Takayama has 6 working sake breweries within a 10-minute walk. The combined tasting tour is unique in Japan. Funasaka (200 years old) and Hirase are the two best. Buy a bottle of the aged sake (Suio, 20+ years — extraordinary) if you see it. This is one of the best-value Japan experiences on the whole trip.'
   },
 
   // ── DAY 18: DEPARTURE ──
   { n:'Day 18', date:'1 Jun', wd:'Monday', color:'#888', types:['transit'],
-    title:'Departure — Nagoya → India', sub:'Flight 09:15 · Chubu Centrair · She stays until 30 Jun',
-    yen:'~¥1,500', yenRaw:1500,
+    title:'Departure — Nagoya → India', sub:'Flight 09:15 · She stays until 30 Jun',
+    yen:'~¥1,500',
     schedule:[
-      {t:'Night before', items:['Complete packing the night before — NEVER morning of a flight','Set alarm for 05:30','Leave a prepared meal in the fridge with a note for Bandita']},
-      {t:'05:30–06:00', items:['Leave Mishima Lodge','She walks you to campus gate, or comes to airport (easy by train from campus)']},
-      {t:'06:00–06:30', items:['μ-SKY Meitetsu from Nagoya Stn → Centrair (28 min, ¥870)','Buy ticket at gate or use Suica']},
-      {t:'06:30–09:00', items:['Check in — international flights: 2.5 hrs before','Duty free: Umaibo packs, Pocky, Kit Kat Japan flavours (matcha, sake, wasabi), Calbee potato chips','Nagoya Airport Miso Katsu bento for the flight (¥1,200 — find at departures shops)']},
-      {t:'09:15', items:['Departure. She stays in Japan until 30 June.','It\'s not goodbye — she\'s back in a month.']}
+      {t:'Night before (31 May)',items:['Complete packing — do NOT leave for the morning','Leave a prepared meal in the fridge with a note for Bandita','Leave her enough Indian food / supplies for a week — you will be back in India, she stays here']},
+      {t:'05:30',items:['Leave Mishima Lodge','She walks you to the campus gate']},
+      {t:'06:00–06:30',items:['μ-SKY Meitetsu → Centrair Airport (28 min, ¥870)']},
+      {t:'06:30–09:00',items:['Check in (2.5 hrs before international)','Duty free: Umaibo packs, Japanese Kit Kat (matcha, sake, wasabi flavours), Pocky, Calbee','Nagoya Airport Miso Katsu Bento (¥1,200) — buy at departures, eat on the plane']},
+      {t:'09:15',items:['Departure. It is not goodbye — she is back in a month.']}
     ],
-    food:[{name:'Nagoya Airport Miso Katsu Bento',where:'Centrair departures shops',note:'The airport version is actually very good. Buy before security, eat on the plane.',cost:'¥1,200'}],
-    tickets:[{name:'μ-SKY to Centrair',price:'¥870',how:'IC card or cash at Meitetsu gate',note:'28 min, fastest airport link'}],
-    budget:[{cat:'Airport transport',amt:'¥870'},{cat:'Duty free / gifts',amt:'¥3,000–6,000'}],
-    shopping:[{cat:'Duty free omiyage',amt:'¥3,000–5,000',note:'Final spend from shopping fund. Centrair duty-free has good prices on Japanese snacks and sake.'}],
-    note:'Leave something behind for Bandita before you go — a handwritten note under her pillow, flowers from the campus flower shop (open early), or a week\'s worth of her favourite Indian snacks from the Indian grocery in Nagoya (Motoyama area has South Asian shops). She has 30 more days alone in Nagoya — make sure she has comfort food.'
+    food:[{name:'Airport Miso Katsu Bento',where:'Centrair departures shops',note:'Classic Nagoya airport souvenir food. Genuinely good.',cost:'¥1,200'}],
+    tickets:[{name:'μ-SKY to Centrair',price:'¥870',how:'IC card or cash',note:'28 min, fastest option'}],
+    budget:[{cat:'Airport transport',amt:'¥870'},{cat:'Duty free gifts',amt:'¥3,000–6,000'}],
+    shopping:[{cat:'Duty free omiyage',amt:'¥3,000–5,000',note:'Centrair has good prices on Nagoya specialities. Buy uiro (Nagoya rice sweet), ebi senbei, and Japanese Kit Kat as airport gifts.'}],
+    note:'Leave something behind for her before you go — a handwritten note in her lab notebook, flowers from the campus shop (open early), and a week\'s worth of Indian snacks from Motoyama area South Asian grocery. She has 30 more days alone in Nagoya.'
   }
 ];
 
 // ═══ FOOD GUIDE ═══
 const foods = [
-  {name:'Miso Katsu',type:'Main dish · Nagoya',desc:'Pork cutlet in thick dark hatcho miso sauce. The No.1 Nagoya speciality. The half-and-half (miso + regular tonkatsu) is the best intro.',cost:'¥1,200–1,500',where:'Misokatsu Yabaton',covered:true},
-  {name:'Tebasaki Wings',type:'Snack · Nagoya',desc:'Double-fried chicken wings coated in salty-sweet spice glaze and sesame seeds. Addictive with cold beer. Order 10 minimum.',cost:'¥700–900',where:'Sekai no Yamachan · Furaibo',covered:true},
-  {name:'Kishimen Noodles',type:'Noodle dish · Nagoya',desc:'Flat wide wheat noodles in delicate dashi broth. Gentle and silky — the quiet side of Nagoya food. Best at Atsuta Shrine stall.',cost:'¥700–900',where:'Miya Kishimen, Atsuta Shrine',covered:true},
-  {name:'Miso Nikomi Udon',type:'Hotpot · Nagoya',desc:'Thick chewy udon simmered in clay pot of red miso with chicken, egg, spring onion. Arrives still bubbling at the table.',cost:'¥1,000–1,300',where:'Yamamotoya Honten',covered:true},
-  {name:'Tenmusu Onigiri',type:'Street snack · Nagoya',desc:'Rice ball stuffed with a whole shrimp tempura, wrapped in nori. Portable and incredibly satisfying. Nagoya exclusive.',cost:'¥150–200 each',where:'Ganso Tenmusu Senju, Osu',covered:true},
-  {name:'Taiwan Ramen',type:'Noodle · Nagoya',desc:'Nagoya\'s own invention: spicy garlic minced pork ramen from a Taiwanese immigrant in 1970. Fiery, garlicky, for late nights.',cost:'¥700–900',where:'Misei (Chikusa)',covered:true},
-  {name:'Ogura Toast',type:'Breakfast · Nagoya',desc:'Thick white toast with sweet red bean paste and butter. Free with any coffee order at Komeda. Nagoya morning tradition.',cost:'¥600–800',where:'Komeda Coffee (everywhere)',covered:true},
-  {name:'Ankake Spaghetti',type:'Eccentric · Nagoya',desc:'Thick pasta in thick spiced vegetable sauce with sausage. Invented in the 1960s and stubbornly Nagoya-only. Bizarre and wonderful.',cost:'¥900–1,100',where:'Spaghetti House Yokoi, Sakae',covered:true},
-  {name:'Hamamatsu Gyoza',type:'Street food · Hamamatsu',desc:'Pan-fried flat dumplings in a circular ring with bean sprout mound. Hamamatsu\'s claim to fame.',cost:'¥600–800',where:'Ishimaru Shoten',covered:true},
-  {name:'Hida Beef Skewer',type:'Street food · Takayama',desc:'Local wagyu-style beef at ¥500–800 per skewer. Comparable to Kobe beef at 1/10 the price.',cost:'¥500–800',where:'Takayama market stalls',covered:true},
-  {name:'Nishiki Market Snacks',type:'Market food · Kyoto',desc:'The best food market walk in Japan. Tofu on stick, tsukemono pickles, dashi tamago, matcha soft serve. Budget ¥1,500 per person.',cost:'¥1,000–1,500',where:'Nishiki Market, Kyoto',covered:true},
-  {name:'Kakinoha Zushi',type:'Specialty sushi · Nara',desc:'Pressed sushi wrapped in persimmon leaves. Delicate, aromatic, completely unlike nigiri. Only in Nara.',cost:'¥800–1,200',where:'Hiraso or Tanaka, Nara',covered:true},
-  // MISSING — not in itinerary
-  {name:'Unadon / Hitsumabushi',type:'MISSING — try if chance · Nagoya',desc:'Grilled freshwater eel on rice (Unadon) or the elaborate Nagoya version Hitsumabushi (3-way eating ritual). Unadon at Nagoya or Hamamatsu.',cost:'¥1,500 (unadon) / ¥3,500+ (hitsumabushi)',where:'Atsuta Horaiken or Hamamatsu Yanagiya',covered:false},
-  {name:'Kawa-Dofu (River Tofu)',type:'MISSING — try if chance · Inuyama',desc:'Silky fresh tofu from the Kiso River valley, served cold with yuzu soy. Inuyama riverside restaurants.',cost:'¥800–1,200',where:'Inuyama riverside',covered:false},
-  {name:'Sakura Ebi Kakiage',type:'MISSING — Shizuoka region',desc:'Tiny dried cherry shrimp from Shimizu, unique to the Shizuoka/Hamamatsu region. Kakiage tempura style.',cost:'¥800–1,000',where:'Any Hamamatsu restaurant',covered:false},
-  {name:'Nagoya Morning Market (Yanagibashi)',type:'MISSING — try early morning',desc:'Nagoya\'s own Tsukiji-style market. Open from 05:00. Fresh tamagoyaki, fish, pickles, dried goods. A local secret.',cost:'¥500–1,000',where:'Yanagibashi Central Market, Nagoya',covered:false},
-  {name:'Dote-ni (Offal Miso Stew)',type:'MISSING — acquired taste · Nagoya',desc:'Old-school Nagoya stew of pork and beef offcuts in red miso, served with beer at izakayas. Very local.',cost:'¥800–1,000',where:'Local izakaya near campus',covered:false},
-  {name:'Obanzai (Kyoto multi-dish)',type:'Covered partially · Kyoto',desc:'Traditional Kyoto vegetable-forward teishoku. Light, nuanced, the opposite of Nagoya meshi. Worth seeking out in Gion.',cost:'¥1,200–1,500',where:'Small places near Gion, Kyoto',covered:true}
+  {name:'Miso Katsu',type:'Main dish · Nagoya',desc:'Pork cutlet in thick dark hatcho miso sauce. The No.1 Nagoya dish. Try the half-and-half (miso + regular sauce) first time.',cost:'¥1,200–1,500',where:'Misokatsu Yabaton',covered:true},
+  {name:'Tebasaki Wings',type:'Street food · Nagoya',desc:'Double-fried chicken wings, salty-sweet spice glaze, sesame seeds. Addictive. Order 10+.',cost:'¥700–900',where:'Furaibo · Sekai no Yamachan',covered:true},
+  {name:'Kishimen Noodles',type:'Noodle dish · Nagoya',desc:'Flat wide wheat noodles in delicate dashi broth. The gentle, quiet side of Nagoya food.',cost:'¥700–900',where:'Miya Kishimen, Atsuta Shrine',covered:true},
+  {name:'Miso Nikomi Udon',type:'Hotpot · Nagoya',desc:'Thick udon in clay pot of red miso broth. Arrives still bubbling. Pure comfort.',cost:'¥1,000–1,300',where:'Yamamotoya Honten',covered:true},
+  {name:'Ankake Spaghetti',type:'Unique · Nagoya only',desc:'Thick pasta in thick spiced vegetable sauce. Invented 1960s. Only exists in Nagoya. Strange and wonderful.',cost:'¥900–1,100',where:'Spaghetti House Yokoi',covered:true},
+  {name:'Ekiben Platform Bento',type:'Transport experience · Japan',desc:'Regional bento bought at station, eaten on Shinkansen at 285 km/h. One of Japan\'s most essential experiences.',cost:'¥1,000–1,800',where:'Nagoya Station + Ekibenya Matsuri, Tokyo Station',covered:true},
+  {name:'Kaiseki Dinner',type:'Fine dining · Japan',desc:'Multi-course traditional Japanese cuisine — 7–12 seasonal dishes presented as art. The pinnacle of Japanese food culture.',cost:'¥8,000–15,000 pp',where:'Gero Onsen ryokan (included) + Tokyo',covered:true},
+  {name:'Hida Beef Skewer',type:'Street food · Takayama',desc:'Local wagyu-style beef skewer — comparable to Kobe at 1/10 the price. Best value wagyu in Japan.',cost:'¥500–800',where:'Takayama market stalls',covered:true},
+  {name:'Sake Brewery Tasting',type:'Experience · Takayama',desc:'All 6 breweries in Takayama\'s old town, walk-in tasting, free to ¥500. The yuzu sake and aged sake are exceptional.',cost:'¥0–1,500 pp',where:'Funasaka + Hirase Breweries, Takayama',covered:true},
+  {name:'Onsen Ryokan Breakfast',type:'Cultural experience · Gero',desc:'Japanese-style breakfast in tatami room — grilled fish, miso, tofu, pickles, rice. How Japan starts the day.',cost:'Included in ryokan',where:'Yunoshimakan or Suihouen, Gero Onsen',covered:true},
+  {name:'Tenmusu Onigiri',type:'Street snack · Nagoya',desc:'Rice ball stuffed with a whole shrimp tempura. Portable, satisfying. Nagoya-only.',cost:'¥150–200 each',where:'Ganso Tenmusu Senju, Osu',covered:false},
+  {name:'Taiwan Ramen',type:'Noodle · Nagoya',desc:'Spicy garlic minced pork ramen invented by Taiwanese immigrants in Nagoya, 1970. Fiery, garlicky, addictive.',cost:'¥700–900',where:'Misei, Chikusa',covered:false},
+  {name:'Kakinoha Zushi',type:'Specialty sushi · Nara',desc:'Pressed sushi wrapped in persimmon leaves. Unique to Nara. Unlike anything elsewhere.',cost:'¥800–1,200',where:'Hiraso or Tanaka, Nara',covered:false},
+  {name:'Hitsumabushi',type:'Try if chance · Nagoya',desc:'Nagoya\'s famous grilled eel dish — eaten 3 ways: plain, with condiments, with broth. The full ritual is special.',cost:'¥3,500–5,000',where:'Atsuta Horaiken, Nagoya',covered:false}
 ];
 
 // ═══ WATCH GUIDE ═══
 const watches = [
-  {name:'Osu Antique Market (18th & 28th)',city:'Nagoya · Days 4 & 14',desc:'80–120 stalls at Osu Kannon temple, 05:00–16:00 on 18th and 28th of every month. Vintage watches, coins, militaria, Showa collectibles. Both dates fall within your trip (18 May = Day 4, 28 May = Day 14).',tip:'Arrive by 05:30–06:00. Dealers buy for stock by 07:00. Haggle to 60% of asking price. Cash only.',budget:'¥0–50,000 allocated'},
-  {name:'Komehyo Osu (5 floors)',city:'Nagoya · Day 3 (Sunday)',desc:'Multi-floor used luxury goods department store in Osu Shopping Street. Watches include Rolex, Omega, Seiko, Grand Seiko, Citizen at graded used prices with warranty. English-speaking staff available.',tip:'Ground floor: entry-level used watches from ¥5,000. Upper floors: luxury from ¥30,000+. Open daily 11:00–20:00.',budget:'¥5,000–80,000'},
-  {name:'Daikokuya Osu',city:'Nagoya · Day 3',desc:'Well-known used watch and jewellery shop in Osu. More budget-focused than Komehyo. Good for vintage Seiko 5, Citizen chronographs, Casio G-Shock.',tip:'Best budget watch shop in Nagoya. No pressure, no pretension.',budget:'¥3,000–20,000'},
-  {name:'Hard-Off (Junk box)',city:'Nationwide · Any city',desc:'Japan\'s largest second-hand chain. Look for "Junk" boxes — watches marked ¥500–2,000 that run fine but have cosmetic wear. The staff don\'t always know what they\'re discarding.',tip:'Check Hard-Off in Nagoya (Tempaku branch), Kyoto, and any city you visit. App shows stock.',budget:'¥500–15,000'},
-  {name:'Second Street Osu',city:'Nagoya · Day 14',desc:'Chain used goods shop just off the Osu arcade. More curated than Hard-Off, slightly higher prices. Watches ¥3,000–30,000.',tip:'Look for watches with original boxes — Second Street prices them the same whether box is present or not.',budget:'¥3,000–25,000'},
-  {name:'Jackroad — Nakano Broadway',city:'Tokyo (if added)',desc:'Most famous vintage watch store in Japan. 3 storefronts on 3rd floor of Nakano Broadway. Rolex, Omega, Patek, Seiko — 6,000+ items. English-speaking staff.',tip:'Take JR Chuo Line to Nakano, exit North, through shopping arcade 5 min. Nakano Broadway is not in your current itinerary — add a Tokyo day trip if you have leftover budget.',budget:'¥15,000–500,000+'},
-  {name:'Firekids / Kamekichi — Nakano',city:'Tokyo (if added)',desc:'Firekids: vintage Japanese domestic watches — Grand Seiko, King Seiko, Citizen Cosmostar chronographs. Kamekichi: reportedly fairest prices of all Nakano dealers.',tip:'Compare Jackroad vs Kamekichi for the same reference — often 10–15% difference. Budget ¥20,000–80,000 for a clean Grand Seiko.',budget:'¥5,000–100,000'}
+  {name:'Osu Antique Market (18th + 28th)',city:'Nagoya · Days 4 + 14',desc:'120 stalls at Osu Kannon temple. Opens 05:00. Vintage watches, coins, militaria, ceramics. Both dates fall in your trip — 18 May and 28 May.',tip:'Arrive by 05:30 on 28 May (last chance). Cash only. Start at 60% of asking price. Dealers selling to dealers clear out by 07:00.',budget:'¥0–50,000 allocated'},
+  {name:'Komehyo Osu',city:'Nagoya · Day 4 (after market)',desc:'5-floor used luxury goods store. Watches include Rolex, Omega, Grand Seiko, Citizen. Graded used prices with warranty. English staff.',tip:'Ground floor: entry-level from ¥5,000. Open daily 11:00–20:00.',budget:'¥5,000–80,000'},
+  {name:'Jackroad — Nakano Broadway',city:'Tokyo · Day 10 (Saturday)',desc:'Most famous vintage watch shop in Japan. 3 storefronts, 3rd floor, Nakano Broadway. 6,000+ items. Rolex, Omega, Patek, Seiko. English-speaking staff.',tip:'Take JR Chuo Line to Nakano, exit North, walk 5 min. 3rd floor up the escalator.',budget:'¥20,000–300,000+'},
+  {name:'Firekids — Nakano Broadway',city:'Tokyo · Day 10',desc:'Specialises in vintage Japanese domestic watches: Grand Seiko, King Seiko, Citizen chronographs. More accessible prices than Jackroad for JDM pieces.',tip:'1st floor of Nakano Broadway. Best for vintage Seiko on a budget.',budget:'¥5,000–80,000'},
+  {name:'Kamekichi — Nakano Broadway',city:'Tokyo · Day 10',desc:'Reportedly fairest prices of all Nakano dealers. English staff. Compare here before buying at Jackroad.',tip:'3rd floor. Always compare the same reference at Kamekichi vs Jackroad — often 10–15% difference.',budget:'¥5,000–100,000'},
+  {name:'Hard-Off + Junk boxes',city:'Nagoya + nationwide',desc:'Japan\'s biggest second-hand chain. ¥500–2,000 Junk box watches that run fine but have cosmetic wear. Staff often don\'t know what they\'re discarding.',tip:'Tempaku branch in Nagoya. Look for the "Junk" labelled boxes in the watch cabinet.',budget:'¥500–15,000'},
 ];
 
 // ═══ ESSENTIALS ═══
 const essentials = [
   {icon:'📱',title:'Apps to download before you fly',items:[
-    {text:'Google Maps — download Nagoya, Kyoto, Hamamatsu, Takayama offline',note:'Essential. Works perfectly in Japan.'},
-    {text:'Google Translate — enable Japanese camera mode (offline download)',note:'Point camera at menus. Saves you everywhere.'},
-    {text:'Hyperdia or Navitime Japan — train route planning',note:'Better than Google Maps for rail in Japan.'},
-    {text:'Willer Express — for highway bus booking (Nagoya↔Kawaguchiko, Takayama)',note:'willerexpress.com — book 2–3 weeks ahead.'},
-    {text:'Smart EX — Shinkansen reservation (JR Tokai)',note:'smartex.jp — buy and manage Shinkansen tickets on phone.'},
-    {text:'PayPay — Japan\'s largest digital payment (link your Visa/Mastercard)',note:'Accepted everywhere including small shops and stalls.'},
-    {text:'Japan Official Travel App — real-time train info and transit info',note:'Official Japan Tourism Agency app.'},
-    {text:'Rakuten Travel or Jalan — Japanese hotel and ryokan booking',note:'Use for Takayama farmhouse guesthouse.'}
+    {text:'Google Maps — offline download: Nagoya, Kyoto, Takayama, Kawaguchiko, Tokyo'},
+    {text:'Google Translate — enable Japanese camera mode + offline Japanese pack'},
+    {text:'Smart EX (smartex.jp) — Shinkansen reservation from your phone',note:'Essential for booking Tokyo and Fuji journeys in advance.'},
+    {text:'Willer Express / Meitetsu Bus — highway bus booking',note:'For Takayama and Kawaguchiko buses.'},
+    {text:'PayPay — Japan\'s largest digital payment, link your Mastercard',note:'Accepted even at small restaurants and some market stalls.'},
+    {text:'Hyperdia or Navitime Japan — precise train routing'},
+    {text:'Tableall.com or Omakase.jp — kaiseki dinner reservation in Tokyo',note:'Book 2 weeks before travel for Saturday night Tokyo.'}
   ]},
-  {icon:'🎒',title:'Daily backpack essentials',items:[
-    {text:'IC card (Suica/Manaca) — loaded with ¥3,000–5,000',note:'Tap for every train, bus, conbini purchase. Top up at any station machine.'},
-    {text:'Cash ¥5,000–10,000 per day for markets and stalls',note:'Antique markets and small shops are cash-only.'},
-    {text:'Small folding umbrella',note:'May weather in Nagoya: warm (22–28°C) but sudden showers.'},
-    {text:'Portable phone charger (power bank)',note:'Google Maps + Google Translate drains battery fast.'},
-    {text:'Coin purse',note:'Japan produces enormous amounts of coins (¥1, ¥5, ¥10, ¥50, ¥100, ¥500). You will accumulate many.'},
-    {text:'Hand towel / tenugui',note:'Most Japanese public toilets have no hand dryers or paper. Always carry.'},
-    {text:'Lip balm + sunscreen SPF 30+',note:'May in Nagoya is sunny and warm. Outdoor days at Fuji, castles, shrines.'},
-    {text:'Small notebook + pen',note:'Write down addresses in Japanese for taxis. Useful at markets.'}
+  {icon:'🎒',title:'Daily backpack checklist',items:[
+    {text:'Suica IC card — load ¥5,000–8,000 at Centrair on Day 1',note:'Covers every train, bus, taxi, and convenience store across Japan.'},
+    {text:'Cash ¥5,000–10,000 per market/antique day',note:'Antique markets, street stalls, small restaurants — cash only.'},
+    {text:'Small folding umbrella',note:'May is warm (22–28°C) but sudden showers are common.'},
+    {text:'Phone charger (power bank, 10,000+ mAh)',note:'Google Maps + Translate will drain your battery on full days.'},
+    {text:'Coin purse — Japan generates enormous quantities of coins',note:'¥1, ¥5, ¥10, ¥50, ¥100, ¥500 coins accumulate fast.'},
+    {text:'Hand towel — most public toilets have no dryers or paper'},
+    {text:'Sunscreen SPF30+ — outdoor days at Fuji, shrines, Takayama'},
+    {text:'International Driving Permit',note:'Get from Automobile Association of India before travel. Required for Honda Motegi car rental.'}
   ]},
   {icon:'💴',title:'Money and payment',items:[
-    {text:'Carry ¥50,000–80,000 cash total for the trip',note:'Market days, antique stalls, small restaurants, temple entries — all cash.'},
-    {text:'Wise or Revolut card for best ATM rate',note:'Use at 7-Eleven ATMs — they accept foreign cards reliably.'},
-    {text:'7-Eleven ATMs are the safest for international cards',note:'Japan Post ATMs also work. Avoid regular convenience store ATMs.'},
-    {text:'Notify your Indian bank before travel',note:'Otherwise card may be blocked on first overseas transaction.'},
-    {text:'Shopping budget: carry ¥30,000–40,000 cash for markets',note:'Watch dealers and antique stalls never take cards. Always cash for Osu market.'},
-    {text:'¥1 = ₹0.59 / ₹1 = ¥1.69 (March 2026 rate)',note:'Quick mental math: ¥1,000 ≈ ₹590. ¥10,000 ≈ ₹5,900.'}
+    {text:'Carry ¥50,000–80,000 cash for the whole trip',note:'Markets, stalls, shrines, and many small restaurants are cash-only.'},
+    {text:'7-Eleven ATMs accept foreign cards reliably',note:'Japan Post ATMs also work. Avoid non-bank ATMs.'},
+    {text:'Wise or Revolut card for best ATM exchange rate'},
+    {text:'Notify your Indian bank before travel to prevent card blocking'},
+    {text:'Shopping budget: keep ¥50,000 in cash specifically for antique markets',note:'Never take cards to Osu Antique Market — cash only and very firm.'},
+    {text:'₹1 = ¥1.69 / ¥1,000 = ₹590 (March 2026 rate)'}
   ]},
-  {icon:'🚄',title:'Transport tips',items:[
-    {text:'Suica IC card covers all local trains, buses, and taxis in Nagoya, Kyoto, Hamamatsu',note:'Top up at any station. Never buy individual tickets — waste of time.'},
-    {text:'Shinkansen: use Smart EX app to buy reserved seats',note:'Reserved vs unreserved: ¥330 difference. Reserved = guaranteed seat = worth it.'},
-    {text:'Me-guru tourist bus (¥500 day pass) covers all Nagoya sights',note:'Departs from Nagoya Station. Buy day pass onboard.'},
-    {text:'Meitetsu Line covers Inuyama, Arimatsu, Tokoname, Centrair',note:'Different from JR — needs separate fare (IC card works on both).'},
-    {text:'International Driving Permit for Honda Motegi (car rental)',note:'Get from Automobile Association of India before travel. Takes 1 day. Essential for Motegi.'},
-    {text:'Never buy a JR Pass for this trip',note:'Your itinerary is Nagoya-centric. Individual Shinkansen tickets are cheaper than a 14-day JR Pass for this route.'}
+  {icon:'🚄',title:'Shinkansen essentials',items:[
+    {text:'Always buy reserved seats — ¥330 more than unreserved, worth every yen'},
+    {text:'Fuji view: Row E window going TOWARD Tokyo (right side); Row D/E going BACK toward Nagoya (left side)'},
+    {text:'Ekiben: buy at station, NOT on the train — buy before boarding',note:'Ekibenya Matsuri at Tokyo Station is the best shop. Nagoya Station has good options near the gate.'},
+    {text:'You CAN eat and drink on the Shinkansen — it is expected'},
+    {text:'Smart EX app: books Shinkansen from your phone with QR code at the gate'},
+    {text:'Hikari stops at Hamamatsu, Nozomi does not — relevant for that trip'}
   ]},
-  {icon:'🏠',title:'Mishima Lodge / NIBB campus tips',items:[
-    {text:'Confirm spouse/guest policy with NIBB international office ASAP',note:'Email: international@nibb.ac.jp (verify correct address). Give 2–3 weeks notice.'},
-    {text:'Campus supermarket and convenience store',note:'NIBB campus has a small convenience outlet. Full supermarket: LIFE or Aeon in Chikusa ward (10 min walk).'},
-    {text:'Indian grocery store in Nagoya',note:'Motoyama area (near campus) has South Asian groceries — dal, spices, atta available.'},
-    {text:'Lodge kitchen — cooking equipment',note:'Confirm kitchen access at check-in. Usually shared kitchen with basic equipment. Bring your own spices from India.'},
-    {text:'Nearest major station: Nagoya Station (subway: Higashiyama Line, ~15 min)',note:'All Shinkansen depart from Nagoya Stn. Keep this journey time in all early morning calculations.'}
+  {icon:'♨️',title:'Onsen etiquette (Gero Ryokan)',items:[
+    {text:'Wash your entire body at the shower seat BEFORE entering the hot spring pool',note:'This is mandatory — the pool is for soaking, not washing.'},
+    {text:'No tattoos allowed in most traditional ryokan onsen',note:'Check when booking if either of you has tattoos — some ryokan have private baths.'},
+    {text:'Tie long hair up before entering the bath'},
+    {text:'No swimwear in onsen — you enter completely unclothed'},
+    {text:'Men\'s and women\'s baths are separate unless you book a private rotenburo (kashikiriburo)'},
+    {text:'Rotenburo (outdoor bath): go at night for star-watching above the mountains'},
+    {text:'After soaking: do not rinse off the onsen water — the minerals are the point'}
   ]},
-  {icon:'🌸',title:'Japan general tips',items:[
-    {text:'Bow slightly when entering shops — the staff will appreciate it',note:'You don\'t need to be perfect. Any acknowledgement is warmly received.'},
-    {text:'Never tip anywhere in Japan',note:'Tipping is considered rude. The price is the price.'},
-    {text:'Trash cans are almost nonexistent in public spaces',note:'Carry a small bag for your rubbish. Convenience stores have bins — use them.'},
-    {text:'Quiet in trains, no phone calls, phones on silent',note:'Eating on most local trains is also frowned upon. Shinkansen is fine.'},
-    {text:'Shoes off at ryokan / traditional tatami rooms',note:'Look for the step-up at the entrance — that\'s where shoes come off.'},
-    {text:'Queue culture is absolute — never cut a queue',note:'Japanese queues are perfectly orderly. Stand in line without exception.'},
-    {text:'Google Translate camera works on menus in real-time',note:'Point at any Japanese text — it translates live. Works offline too.'},
-    {text:'Convenience stores (conbini) are genuinely excellent',note:'7-Eleven Japan is not the same as anywhere else. The onigiri, karaage, sandwiches are all very good.'}
+  {icon:'🏠',title:'Mishima Lodge + NIBB campus',items:[
+    {text:'Confirm spouse/guest stay policy with NIBB international office ASAP',note:'Email ahead. Most Japanese university lodges allow visiting spouses with 2–3 weeks notice.'},
+    {text:'Indian grocery: Motoyama area of Nagoya has South Asian grocery stores',note:'Dal, atta, spices, ghee all available. 20 min from campus by subway.'},
+    {text:'Campus supermarket: small convenience store within NIBB/Nagoya University grounds'},
+    {text:'Nearest major station: Nagoya Station by subway Higashiyama Line (~15 min)',note:'All Shinkansen depart from Nagoya Station. Factor 20 min transit time in all early morning plans.'},
+    {text:'Leave her well-stocked before departure: Indian snacks, a note, flowers from the campus shop'}
   ]}
 ];
 
 // ═══ SECTIONS ═══
 const sections = [
   {before:0, label:'Transit', dates:'14 May 2026'},
-  {before:1, label:'Nagoya', dates:'15 May – 29 May · NIBB / Mishima Lodge, Nagoya University'},
-  {before:15, label:'Final Weekend', dates:'30–31 May 2026'},
+  {before:1, label:'Nagoya', dates:'15–28 May · NIBB / Mishima Lodge, Nagoya University'},
+  {before:15, label:'Final Weekend', dates:'29–31 May · Gero Onsen + Takayama'},
   {before:17, label:'Departure', dates:'1 June 2026'}
 ];
 
-// ═══ RENDER TAGS ═══
 function tags(types){
-  const map={together:'tag-together',solo:'tag-solo',weekend:'tag-weekend',auto:'tag-auto',food:'tag-food',puja:'tag-puja',cook:'tag-cook',transit:'tag-transit',market:'tag-market',watch:'tag-watch',fuji:'tag-fuji'};
-  const labels={together:'Together',solo:'Solo',weekend:'Weekend',auto:'Auto museum',food:'Food focus',puja:'Sabitri Brata',cook:'Cook at home',transit:'Transit',market:'Market day',watch:'Watch hunt',fuji:'Mt. Fuji'};
+  const map={together:'tag-together',solo:'tag-solo',weekend:'tag-weekend',jdm:'tag-jdm',experience:'tag-experience',puja:'tag-puja',cook:'tag-cook',transit:'tag-transit',fuji:'tag-fuji',shinkansen:'tag-shinkansen',blocked:'tag-blocked',market:'tag-market',onsen:'tag-onsen',kaiseki:'tag-kaiseki'};
+  const labels={together:'Together',solo:'Solo',weekend:'Weekend',jdm:'JDM / Auto',experience:'Japan experience',puja:'Sabitri Brata',cook:'Cook at home',transit:'Transit',fuji:'Mt. Fuji',shinkansen:'Shinkansen',blocked:'Blocked',market:'Market day',onsen:'Onsen',kaiseki:'Kaiseki'};
   return types.map(t=>`<span class="tag ${map[t]||'tag-transit'}">${labels[t]||t}</span>`).join('');
 }
 
-// ═══ RENDER DAY ═══
 function renderDay(d,i){
-  const foodHtml=d.food.map(f=>`<div class="food-item"><div class="food-name">${f.name}</div><div class="food-where">${f.where}</div><div class="food-note">${f.note||''}</div><div class="food-cost">${f.cost}</div></div>`).join('');
-  const ticketHtml=d.tickets.map(t=>`<div class="ticket-item"><div class="ticket-name">${t.name}</div><div class="ticket-price">${t.price}</div>${t.how?`<div class="ticket-how">How to book: ${t.how}</div>`:''}<div class="ticket-note">${t.note||''}</div></div>`).join('');
-  const budgetHtml=d.budget.map(b=>`<div class="budget-row"><span class="cat">${b.cat}</span><span class="amt">${b.amt}</span></div>`).join('');
-  const shopHtml=(d.shopping||[]).map(s=>`<div class="shopping-row"><span class="cat">🛍 ${s.cat}</span><span class="amt">${s.amt}</span></div>${s.note?`<div style="font-size:.7rem;color:var(--soft);padding:0 4px 4px">${s.note}</div>`:''}`).join('');
-  const schedHtml=d.schedule.map(s=>`<div class="time-block"><div class="time-label">${s.t}</div><ul class="time-items">${s.items.map(x=>`<li${s.cook||x.includes('🍳')||x.includes('Cook')||x.includes('cook')?' class="cook-marker"':''}>${x}</li>`).join('')}</ul></div>`).join('');
+  const schedHtml = d.schedule.map(s=>`<div class="time-block"><div class="time-label">${s.t}</div><ul class="time-items">${s.items.map(x=>{
+    const isCook = s.cook || x.startsWith('🍳') || (x.includes('Cook') && x.includes('hrs'));
+    const isHL = s.highlight && !isCook;
+    return `<li class="${isCook?'cook-li':isHL?'highlight-li':''}">${x}</li>`;
+  }).join('')}</ul></div>`).join('');
+  const foodHtml = d.food.map(f=>`<div class="food-item"><div class="item-name">${f.name}</div><div class="item-sub">${f.where}</div><div class="item-note">${f.note||''}</div><div class="item-cost">${f.cost}</div></div>`).join('');
+  const ticketHtml = d.tickets.map(t=>`<div class="ticket-item"><div class="item-name">${t.name}</div><div class="ticket-price">${t.price}</div>${t.how?`<div class="ticket-how">How to book: ${t.how}</div>`:''}<div class="item-note">${t.note||''}</div></div>`).join('');
+  const budgetHtml = d.budget.map(b=>`<div class="budget-row"><span class="cat">${b.cat}</span><span class="amt">${b.amt}</span></div>`).join('');
+  const shopHtml = (d.shopping||[]).map(s=>`<div class="shop-row"><span class="cat">🛍 ${s.cat}</span><span class="amt">${s.amt}</span></div>${s.note?`<div style="font-size:.68rem;color:var(--soft);padding:1px 4px 4px">${s.note}</div>`:''}`).join('');
+  const isBlocked = d.types.includes('blocked');
 
-  return `<div class="day-card" id="dc${i}" data-types="${d.types.join(',')}">
+  return `<div class="day-card${isBlocked?' blocked-day':''}" id="dc${i}" data-types="${d.types.join(',')}">
     <div class="day-header" onclick="toggleCard(${i})">
       <div class="day-left" style="border-left:3px solid ${d.color}">
         <div class="day-num">${d.n}</div>
@@ -716,79 +707,39 @@ function renderDay(d,i){
     </div>
     <div class="day-detail">
       <div class="detail-grid">
-        <div class="detail-col">
-          <div class="detail-col-title">Schedule</div>
-          ${schedHtml}
-        </div>
-        <div class="detail-col">
-          <div class="detail-col-title">Food · What &amp; Where</div>
-          ${foodHtml}
-        </div>
-        <div class="detail-col">
-          <div class="detail-col-title">Tickets · How to Book · Budget</div>
-          ${ticketHtml}
-          <div style="margin-top:1rem;padding-top:.7rem;border-top:1px solid var(--border)">
-            <div class="detail-col-title" style="border:none;margin-bottom:.4rem">Budget</div>
-            ${budgetHtml}
-            ${shopHtml}
-            <div class="budget-total"><span>Day estimate</span><span class="amt">${d.yen}</span></div>
-          </div>
-        </div>
+        <div class="detail-col"><div class="col-title">Schedule</div>${schedHtml}</div>
+        <div class="detail-col"><div class="col-title">Food · What &amp; Where</div>${foodHtml}</div>
+        <div class="detail-col"><div class="col-title">Tickets · How to Book · Budget</div>${ticketHtml}<div style="margin-top:.9rem;padding-top:.6rem;border-top:1px solid var(--border)"><div class="col-title" style="border:none;margin-bottom:.35rem">Budget</div>${budgetHtml}${shopHtml}<div class="budget-total"><span>Day estimate</span><span class="amt">${d.yen}</span></div></div></div>
       </div>
-      ${d.pujaNote?`<div class="puja-box"><strong>Sabitri Brata note:</strong> ${d.pujaNote}</div>`:''}
+      ${d.pujaNote?`<div class="puja-box"><strong>Sabitri Brata:</strong> ${d.pujaNote}</div>`:''}
+      ${d.expNote?`<div class="exp-box"><strong>Experience note:</strong> ${d.expNote}</div>`:''}
+      ${d.jdmNote?`<div class="jdm-box"><strong>JDM note:</strong> ${d.jdmNote}</div>`:''}
       ${d.note?`<div class="day-note">${d.note}</div>`:''}
     </div>
   </div>`;
 }
 
 function buildDays(){
-  const root=document.getElementById('days-root');
-  let html='';
+  const root = document.getElementById('days-root');
+  let html = '';
   days.forEach((d,i)=>{
-    const sec=sections.find(s=>s.before===i);
+    const sec = sections.find(s=>s.before===i);
     if(sec) html+=`<div class="section-break"><span class="city-name">${sec.label}</span><span class="city-line"></span><span class="city-dates">${sec.dates}</span></div>`;
-    html+=renderDay(d,i);
+    html += renderDay(d,i);
   });
-  root.innerHTML=html;
+  root.innerHTML = html;
 }
 
 function buildFood(){
-  document.getElementById('food-grid').innerHTML=foods.map(f=>`
-    <div class="food-card ${f.covered?'covered':'missing'}">
-      <div class="food-card-header">
-        <div class="food-card-name">${f.name}</div>
-        <div class="food-card-type">${f.type}</div>
-      </div>
-      <div class="food-card-body">
-        <div class="food-card-desc">${f.desc}</div>
-        <div class="food-card-meta">
-          <span class="food-card-cost">${f.cost}</span>
-          <span class="food-card-status ${f.covered?'status-covered':'status-missing'}">${f.covered?'In itinerary':'Try if chance'}</span>
-        </div>
-        <div style="font-size:.72rem;color:var(--soft);margin-top:4px">${f.where}</div>
-      </div>
-    </div>`).join('');
+  document.getElementById('food-grid').innerHTML = foods.map(f=>`<div class="guide-card"><div class="guide-card-header"><div class="guide-card-name">${f.name}</div><div class="guide-card-type">${f.type}</div></div><div class="guide-card-body"><div class="guide-card-desc">${f.desc}</div><div class="guide-card-meta"><span class="guide-card-cost">${f.cost}</span><span class="guide-card-status ${f.covered?'status-in':'status-try'}">${f.covered?'In itinerary':'Try if chance'}</span></div><div class="guide-card-where">${f.where}</div></div></div>`).join('');
 }
 
 function buildWatches(){
-  document.getElementById('watch-grid').innerHTML=watches.map(w=>`
-    <div class="watch-card">
-      <div class="watch-card-name">${w.name}</div>
-      <div class="watch-card-city">${w.city}</div>
-      <div class="watch-card-desc">${w.desc}</div>
-      <div class="watch-card-tip">${w.tip}</div>
-      <div class="watch-card-budget">Budget: ${w.budget}</div>
-    </div>`).join('');
+  document.getElementById('watch-grid').innerHTML = watches.map(w=>`<div class="guide-card"><div class="guide-card-header"><div class="guide-card-name">${w.name}</div><div class="guide-card-type">${w.city}</div></div><div class="guide-card-body"><div class="guide-card-desc">${w.desc}</div><div class="tip-box">${w.tip}</div><div class="budget-note-sm">Budget: ${w.budget}</div></div></div>`).join('');
 }
 
 function buildEssentials(){
-  document.getElementById('essentials-grid').innerHTML=essentials.map(e=>`
-    <div class="ess-card">
-      <div class="ess-card-header"><span class="ess-icon">${e.icon}</span>${e.title}</div>
-      <div class="ess-card-body">
-        ${e.items.map(i=>`<div class="ess-item">${i.text}${i.note?`<span class="note">${i.note}</span>`:''}</div>`).join('')}
-      </div>
-    </div>`).join('');
+  document.getElementById('essentials-grid').innerHTML = essentials.map(e=>`<div class="ess-card"><div class="ess-header">${e.icon} ${e.title}</div><div class="ess-body">${e.items.map(i=>`<div class="ess-item">${i.text}${i.note?`<span class="ess-note">${i.note}</span>`:''}</div>`).join('')}</div></div>`).join('');
 }
 
 function toggleCard(i){document.getElementById('dc'+i).classList.toggle('open')}
@@ -798,12 +749,12 @@ function filterDays(type,btn){
   btn.classList.add('active');
   days.forEach((d,i)=>{
     const el=document.getElementById('dc'+i);
-    if(!el)return;
+    if(!el) return;
     el.style.display=(type==='all'||d.types.includes(type))?'':'none';
   });
 }
 
-buildDays();buildFood();buildWatches();buildEssentials();
+buildDays(); buildFood(); buildWatches(); buildEssentials();
 </script>
 </body>
 </html>
